@@ -526,3 +526,21 @@ Processing TriggersController#index (for 127.0.0.1 at 2008-03-22 13:45:22) [GET]
 Rendering template within layouts/triggers
 Rendering triggers/index
 Completed in 0.03465 (28 reqs/sec) | Rendering: 0.00613 (17%) | DB: 0.00190 (5%) | 200 OK [http://localhost/triggers]
+
+
+Processing TriggersController#index (for 127.0.0.1 at 2008-03-22 14:04:08) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZmQwNzYxYjhhM2JmNGM5Y2I2MjE5NjRjM2UxNTFi%0AYjUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--9eaf41c748ddbacda4521d41934a9d732f18a057
+  Parameters: {"action"=>"index", "controller"=>"triggers"}
+  [4;36;1mTrigger Load (0.001950)[0m   [0;1mSELECT * FROM triggers [0m
+Rendering template within layouts/triggers
+Rendering triggers/index
+Completed in 0.03894 (25 reqs/sec) | Rendering: 0.01385 (35%) | DB: 0.00195 (5%) | 200 OK [http://localhost/triggers]
+
+
+Processing ChannelsController#index (for 127.0.0.1 at 2008-03-22 14:04:12) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZmQwNzYxYjhhM2JmNGM5Y2I2MjE5NjRjM2UxNTFi%0AYjUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--9eaf41c748ddbacda4521d41934a9d732f18a057
+  Parameters: {"action"=>"index", "controller"=>"channels"}
+  [4;35;1mChannel Load (0.001700)[0m   [0mSELECT * FROM channels [0m
+Rendering template within layouts/channels
+Rendering channels/index
+Completed in 0.04000 (25 reqs/sec) | Rendering: 0.01233 (30%) | DB: 0.00170 (4%) | 200 OK [http://localhost/]

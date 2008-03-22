@@ -46,7 +46,7 @@ ul#navigation li a {
 	color: #fff;
 	text-decoration: none;
 	background: #777;
-	padding: 0.5em 1em 1em 1em;
+	padding: 0.5em 1em 1em 0.5em;
 	line-height: 2em;
 	border-top: 0.15em solid #999;
 	-webkit-border-top-left-radius: 5px;

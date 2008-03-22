@@ -20,7 +20,8 @@
 
   <p>
     <b>Global</b><br />
-    <%= f.check_box :global %>
+    <%= f.check_box :global if is_global? %>
+    <%=h @admin.global if !is_global? %>
   </p>
 
   <p>

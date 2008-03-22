@@ -32,7 +32,8 @@ class AdminsController < ApplicationController
   # POST /admins.xml
   def create
     @admin = Admin.new(params[:admin])
-
+    @admin.global = false
+    
     respond_to do |format|
       if @admin.save
         flash[:notice] = 'Admin was successfully created.'

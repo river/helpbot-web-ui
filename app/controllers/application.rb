@@ -2,9 +2,22 @@
 # Likewise, all the methods added will be available for all controllers.
 
 class ApplicationController < ActionController::Base
-  helper :all # include all helpers, all the time
+  protect_from_forgery 
 
-  # See ActionController::RequestForgeryProtection for details
-  # Uncomment the :secret if you're not using the cookie session store
-  protect_from_forgery # :secret => '1c40c758eadd0c2ae72b2b71b6f65aa9'
+  before_filter :initialize_user 
+  
+  # make these available as ActionView helper methods. 
+  helper_method :logged_in? 
+
+  protected 
+ 
+  # Check if the user is already logged in 
+  def logged_in? 
+    @current_admin.is_a?(Admin) 
+  end 
+
+  # setup user info on each page 
+  def initialize_user 
+    @current_admin = Admin.find_by_id(session[:admin]) if session[:admin] 
+  end
 end

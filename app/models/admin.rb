@@ -20,6 +20,17 @@ class Admin < ActiveRecord::Base
     Digest::MD5.hexdigest(pass)
   end
   
+  # authenticate by email/password 
+  def self.authenticate(login, pass) 
+    admin = find_by_login(login) 
+    admin && admin.authenticated?(pass) ? admin : nil 
+  end
+  
+  # does the given password match the stored encrypted password 
+  def authenticated?(pass) 
+    hashed_password == Admin.encrypt(pass) 
+  end
+  
   protected
   
   # encrypt a users password

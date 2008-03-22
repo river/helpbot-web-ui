@@ -12,7 +12,13 @@
   
   #container
     #statusbar
-      %p Logged in as Steve. (Logout?)
+      - if logged_in?
+        %p Logged in as #{@current_admin.name} |
+        =link_to "(Logout?)",	:controller => "sessions", 
+								:action => "destroy"
+	  - else
+	    =link_to "join us", :controller => "admins", :action => "new"
+	    =link_to "login", :controller => "sessions", :action => "new"
     
     %h1#header= link_to "IRC Help Bot", "/"
     

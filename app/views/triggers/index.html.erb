@@ -10,8 +10,8 @@
 
 <% for trigger in @triggers %>
   <tr>
-    <td><%=h trigger.channel_id %></td>
-    <td><%=h trigger.admin_id %></td>
+    <td><%=h trigger.channel_name %></td>
+    <td><%=h trigger.admin_login %></td>
     <td><%=h trigger.question %></td>
     <td><%=h trigger.answer %></td>
     <td><%= link_to 'Show', trigger %></td>

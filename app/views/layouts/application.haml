@@ -1,0 +1,33 @@
+!!! Strict
+%html{"xmlns" => "http://www.w3.org/1999/xhtml", "xml:lang" => "en", "lang" => "en"}
+
+%head
+  %title IRC Help Bot
+  %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}
+  
+  = stylesheet_link_tag "master"
+  = javascript_include_tag :defaults
+
+%body
+  
+  #container
+    #statusbar
+      %p Logged in as Steve. (Logout?)
+    
+    %h1#header= link_to "IRC Help Bot", "/"
+    
+    %ul#navigation
+      %li= link_to "Channels", channels_url, :class => "current"
+      %li= link_to "Triggers", triggers_url
+      %li= link_to "Admins", admins_url
+    
+    #body
+      
+      - if flash[:notice]
+        %p#flash#notice= flash[:notice]
+      
+      = yield
+    
+    #footer
+      %p Copyright 2008 River Jiang, Noah Lackstein ... for now.
+    

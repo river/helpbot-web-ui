@@ -1,9 +1,8 @@
 <h1>Register To Become a Member</h1> 
 <div class="form"> 
 <%= error_messages_for :user -%> 
-<fieldset> 
-<legend>Create a TucsonRails Account</legend> 
-<% form_for :user, :url => { :action => "create" } do |form| %> 
+
+<% form_for :admin, :url => { :action => "create" } do |form| %> 
 <div> 
 <%= form.label :name %>:<br /> 
 <%= form.text_field :name, :class => "short" %> 
@@ -26,6 +25,5 @@
 :class => "short" %> 
 </div> 
 <%= submit_tag "Submit" %> 
-<% end %> 
-</fieldset> 
+<% end %>  
 </div

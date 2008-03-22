@@ -6,8 +6,7 @@ class Admin < ActiveRecord::Base
   # validation 
   validates_length_of		:email,		:within => 3..100 
   validates_uniqueness_of	:email,		:case_sensitive => false 
-  validates_presence_of		:name,		:global,
-  										:login
+  validates_presence_of		:name,		:login
   validates_length_of		:password,	:within => 4..40, 
 										:if => :password_required? 
   validates_confirmation_of :password,	:if => :password_required? 

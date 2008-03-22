@@ -2,21 +2,16 @@
 
 <table>
   <tr>
-    <th>Login</th>
     <th>Name</th>
-    <th>Hashed password</th>
     <th>Global</th>
   </tr>
 
 <% for admin in @admins %>
-  <tr>
-    <td><%=h admin.login %></td>
+  <tr class="<%= cycle('shade', '') %>">
     <td><%=h admin.name %></td>
-    <td><%=h admin.hashed_password %></td>
     <td><%=h admin.global %></td>
     <td><%= link_to 'Show', admin %></td>
     <td><%= link_to 'Edit', edit_admin_path(admin) %></td>
-    <td><%= link_to 'Destroy', admin, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

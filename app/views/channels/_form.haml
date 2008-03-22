@@ -1,0 +1,13 @@
+= error_messages_for :channel
+
+%p
+  %label Name:<br />
+  = text_field :channel, :name
+
+%p
+  %label Channel Wins?
+  = check_box :channel, :channel_wins
+
+%p
+  %label Public?
+  = check_box :channel, :public

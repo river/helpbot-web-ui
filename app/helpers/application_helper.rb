@@ -7,4 +7,9 @@ module ApplicationHelper
   def is_global?
     @current_admin.global
   end
+  
+  def submit_tag_or_cancel(name, options={})
+    options = "javascript:history.go(-1)" if options.empty?
+    "#{submit_tag(name)} or #{link_to 'Cancel', options, :class => 'cancel'}"
+  end
 end

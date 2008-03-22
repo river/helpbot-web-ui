@@ -544,3 +544,280 @@ Processing ChannelsController#index (for 127.0.0.1 at 2008-03-22 14:04:12) [GET]
 Rendering template within layouts/channels
 Rendering channels/index
 Completed in 0.04000 (25 reqs/sec) | Rendering: 0.01233 (30%) | DB: 0.00170 (4%) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.001187)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.000000)[0m   [0mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;36;1mSQL (0.000000)[0m   [0;1mSQLite3::SQLException: table schema_info already exists: CREATE TABLE schema_info (version integer)[0m
+  [4;35;1mSQL (0.001972)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.001143)[0m   [0;1mSELECT version FROM schema_info[0m
+  [4;35;1mSQL (0.001136)[0m   [0mSELECT version FROM schema_info[0m
+  [4;36;1mSQL (0.001080)[0m   [0;1mSELECT version FROM schema_info[0m
+Migrating to AddAdminsChannels (4)
+  [4;35;1mSQL (0.126171)[0m   [0mCREATE TABLE admins_channels ("admin_id" integer DEFAULT NULL, "channel_id" integer DEFAULT NULL) [0m
+  [4;36;1mSQL (0.009867)[0m   [0;1mUPDATE schema_info SET version = 4[0m
+  [4;35;1mSQL (0.001461)[0m   [0mSELECT * FROM schema_info[0m
+  [4;36;1mSQL (0.004028)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.000399)[0m   [0mPRAGMA index_list(admins)[0m
+  [4;36;1mSQL (0.000354)[0m   [0;1mPRAGMA index_list(admins_channels)[0m
+  [4;35;1mSQL (0.000346)[0m   [0mPRAGMA index_list(channels)[0m
+  [4;36;1mSQL (0.000409)[0m   [0;1mPRAGMA index_list(triggers)[0m
+
+
+Processing AdminsController#index (for 127.0.0.1 at 2008-03-22 14:13:25) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZmQwNzYxYjhhM2JmNGM5Y2I2MjE5NjRjM2UxNTFi%0AYjUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--9eaf41c748ddbacda4521d41934a9d732f18a057
+  Parameters: {"action"=>"index", "controller"=>"admins"}
+  [4;36;1mAdmin Load (0.001686)[0m   [0;1mSELECT * FROM admins [0m
+Rendering template within layouts/admins
+Rendering admins/index
+Completed in 0.39638 (2 reqs/sec) | Rendering: 0.33986 (85%) | DB: 0.00169 (0%) | 200 OK [http://localhost/admins]
+
+
+Processing AdminsController#new (for 127.0.0.1 at 2008-03-22 14:13:39) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZmQwNzYxYjhhM2JmNGM5Y2I2MjE5NjRjM2UxNTFi%0AYjUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--9eaf41c748ddbacda4521d41934a9d732f18a057
+  Parameters: {"action"=>"new", "controller"=>"admins"}
+Rendering template within layouts/admins
+Rendering admins/new
+Completed in 0.09801 (10 reqs/sec) | Rendering: 0.02553 (26%) | DB: 0.00000 (0%) | 200 OK [http://localhost/admins/new]
+
+
+Processing AdminsController#create (for 127.0.0.1 at 2008-03-22 14:14:02) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZmQwNzYxYjhhM2JmNGM5Y2I2MjE5NjRjM2UxNTFi%0AYjUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--9eaf41c748ddbacda4521d41934a9d732f18a057
+  Parameters: {"commit"=>"Create", "admin"=>{"name"=>"Steve Jeeves", "hashed_password"=>"secret", "global"=>"1", "login"=>"steve"}, "authenticity_token"=>"9c78d658114329cf553b833fe66e272f99c62d80", "action"=>"create", "controller"=>"admins"}
+  [4;35;1mAdmin Create (0.001977)[0m   [0mINSERT INTO admins ("name", "updated_at", "hashed_password", "global", "login", "created_at") VALUES('Steve Jeeves', '2008-03-22 14:14:02', 'secret', 't', 'steve', '2008-03-22 14:14:02')[0m
+Redirected to http://localhost:3000/admins/1
+Completed in 0.08753 (11 reqs/sec) | DB: 0.00198 (2%) | 302 Found [http://localhost/admins]
+
+
+Processing AdminsController#show (for 127.0.0.1 at 2008-03-22 14:14:02) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZmQwNzYxYjhhM2JmNGM5Y2I2MjE5NjRjM2UxNTFi%0AYjUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoLbm90aWNlIiRBZG1pbiB3YXMgc3VjY2Vzc2Z1bGx5IGNyZWF0ZWQu%0ABjoKQHVzZWR7BjsHVA%3D%3D--ef72e8381274dbb6610f4f4f5f8e879970955cb7
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"admins"}
+  [4;36;1mAdmin Load (0.001878)[0m   [0;1mSELECT * FROM admins WHERE (admins."id" = 1) [0m
+Rendering template within layouts/admins
+Rendering admins/show
+Completed in 0.05181 (19 reqs/sec) | Rendering: 0.01264 (24%) | DB: 0.00188 (3%) | 200 OK [http://localhost/admins/1]
+
+
+Processing AdminsController#index (for 127.0.0.1 at 2008-03-22 14:14:03) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZmQwNzYxYjhhM2JmNGM5Y2I2MjE5NjRjM2UxNTFi%0AYjUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--9eaf41c748ddbacda4521d41934a9d732f18a057
+  Parameters: {"action"=>"index", "controller"=>"admins"}
+  [4;35;1mAdmin Load (0.003198)[0m   [0mSELECT * FROM admins [0m
+Rendering template within layouts/admins
+Rendering admins/index
+Completed in 0.10623 (9 reqs/sec) | Rendering: 0.03851 (36%) | DB: 0.00320 (3%) | 200 OK [http://localhost/admins]
+
+
+Processing AdminsController#new (for 127.0.0.1 at 2008-03-22 14:14:05) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZmQwNzYxYjhhM2JmNGM5Y2I2MjE5NjRjM2UxNTFi%0AYjUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--9eaf41c748ddbacda4521d41934a9d732f18a057
+  Parameters: {"action"=>"new", "controller"=>"admins"}
+Rendering template within layouts/admins
+Rendering admins/new
+Completed in 0.04676 (21 reqs/sec) | Rendering: 0.01334 (28%) | DB: 0.00000 (0%) | 200 OK [http://localhost/admins/new]
+
+
+Processing AdminsController#create (for 127.0.0.1 at 2008-03-22 14:14:27) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZmQwNzYxYjhhM2JmNGM5Y2I2MjE5NjRjM2UxNTFi%0AYjUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--9eaf41c748ddbacda4521d41934a9d732f18a057
+  Parameters: {"commit"=>"Create", "admin"=>{"name"=>"Jonathan Doe", "hashed_password"=>"secret", "global"=>"0", "login"=>"jon"}, "authenticity_token"=>"9c78d658114329cf553b833fe66e272f99c62d80", "action"=>"create", "controller"=>"admins"}
+  [4;36;1mAdmin Create (0.001720)[0m   [0;1mINSERT INTO admins ("name", "updated_at", "hashed_password", "global", "login", "created_at") VALUES('Jonathan Doe', '2008-03-22 14:14:27', 'secret', 'f', 'jon', '2008-03-22 14:14:27')[0m
+Redirected to http://localhost:3000/admins/2
+Completed in 0.06431 (15 reqs/sec) | DB: 0.00172 (2%) | 302 Found [http://localhost/admins]
+
+
+Processing AdminsController#show (for 127.0.0.1 at 2008-03-22 14:14:27) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZmQwNzYxYjhhM2JmNGM5Y2I2MjE5NjRjM2UxNTFi%0AYjUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoLbm90aWNlIiRBZG1pbiB3YXMgc3VjY2Vzc2Z1bGx5IGNyZWF0ZWQu%0ABjoKQHVzZWR7BjsHVA%3D%3D--ef72e8381274dbb6610f4f4f5f8e879970955cb7
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"admins"}
+  [4;35;1mAdmin Load (0.002702)[0m   [0mSELECT * FROM admins WHERE (admins."id" = 2) [0m
+Rendering template within layouts/admins
+Rendering admins/show
+Completed in 0.06253 (15 reqs/sec) | Rendering: 0.01323 (21%) | DB: 0.00270 (4%) | 200 OK [http://localhost/admins/2]
+
+
+Processing AdminsController#index (for 127.0.0.1 at 2008-03-22 14:14:28) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZmQwNzYxYjhhM2JmNGM5Y2I2MjE5NjRjM2UxNTFi%0AYjUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--9eaf41c748ddbacda4521d41934a9d732f18a057
+  Parameters: {"action"=>"index", "controller"=>"admins"}
+  [4;36;1mAdmin Load (0.010763)[0m   [0;1mSELECT * FROM admins [0m
+Rendering template within layouts/admins
+Rendering admins/index
+Completed in 0.14467 (6 reqs/sec) | Rendering: 0.02685 (18%) | DB: 0.01076 (7%) | 200 OK [http://localhost/admins]
+  [4;36;1mAdmin Load (0.002766)[0m   [0;1mSELECT * FROM admins LIMIT 1[0m
+
+
+Processing ChannelsController#index (for 127.0.0.1 at 2008-03-22 14:14:49) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZmQwNzYxYjhhM2JmNGM5Y2I2MjE5NjRjM2UxNTFi%0AYjUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--9eaf41c748ddbacda4521d41934a9d732f18a057
+  Parameters: {"action"=>"index", "controller"=>"channels"}
+  [4;35;1mChannel Load (0.001645)[0m   [0mSELECT * FROM channels [0m
+Rendering template within layouts/channels
+Rendering channels/index
+Completed in 0.03188 (31 reqs/sec) | Rendering: 0.00593 (18%) | DB: 0.00165 (5%) | 200 OK [http://localhost/channels]
+
+
+Processing ChannelsController#new (for 127.0.0.1 at 2008-03-22 14:14:51) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZmQwNzYxYjhhM2JmNGM5Y2I2MjE5NjRjM2UxNTFi%0AYjUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--9eaf41c748ddbacda4521d41934a9d732f18a057
+  Parameters: {"action"=>"new", "controller"=>"channels"}
+Rendering template within layouts/channels
+Rendering channels/new
+Completed in 0.07152 (13 reqs/sec) | Rendering: 0.01655 (23%) | DB: 0.00000 (0%) | 200 OK [http://localhost/channels/new]
+
+
+Processing ChannelsController#create (for 127.0.0.1 at 2008-03-22 14:14:58) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZmQwNzYxYjhhM2JmNGM5Y2I2MjE5NjRjM2UxNTFi%0AYjUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--9eaf41c748ddbacda4521d41934a9d732f18a057
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"9c78d658114329cf553b833fe66e272f99c62d80", "action"=>"create", "controller"=>"channels", "channel"=>{"name"=>"#theamazon", "channel_wins"=>"1", "public"=>"1"}}
+  [4;36;1mChannel Create (0.003706)[0m   [0;1mINSERT INTO channels ("name", "channel_wins", "updated_at", "public", "created_at") VALUES('#theamazon', 't', '2008-03-22 14:14:58', 't', '2008-03-22 14:14:58')[0m
+Redirected to http://localhost:3000/channels/1
+Completed in 0.08181 (12 reqs/sec) | DB: 0.00371 (4%) | 302 Found [http://localhost/channels]
+
+
+Processing ChannelsController#show (for 127.0.0.1 at 2008-03-22 14:14:58) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZmQwNzYxYjhhM2JmNGM5Y2I2MjE5NjRjM2UxNTFi%0AYjUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoLbm90aWNlIiZDaGFubmVsIHdhcyBzdWNjZXNzZnVsbHkgY3JlYXRl%0AZC4GOgpAdXNlZHsGOwdU--267166417a35b948b33d351eebc0d8960dbb4a7f
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"channels"}
+  [4;35;1mChannel Load (0.001864)[0m   [0mSELECT * FROM channels WHERE (channels."id" = 1) [0m
+Rendering template within layouts/channels
+Rendering channels/show
+Completed in 0.08779 (11 reqs/sec) | Rendering: 0.03692 (42%) | DB: 0.00186 (2%) | 200 OK [http://localhost/channels/1]
+
+
+Processing ChannelsController#index (for 127.0.0.1 at 2008-03-22 14:15:00) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZmQwNzYxYjhhM2JmNGM5Y2I2MjE5NjRjM2UxNTFi%0AYjUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--9eaf41c748ddbacda4521d41934a9d732f18a057
+  Parameters: {"action"=>"index", "controller"=>"channels"}
+  [4;36;1mChannel Load (0.017777)[0m   [0;1mSELECT * FROM channels [0m
+Rendering template within layouts/channels
+Rendering channels/index
+Completed in 0.07294 (13 reqs/sec) | Rendering: 0.01734 (23%) | DB: 0.01778 (24%) | 200 OK [http://localhost/channels]
+
+
+Processing ChannelsController#new (for 127.0.0.1 at 2008-03-22 14:15:01) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZmQwNzYxYjhhM2JmNGM5Y2I2MjE5NjRjM2UxNTFi%0AYjUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--9eaf41c748ddbacda4521d41934a9d732f18a057
+  Parameters: {"action"=>"new", "controller"=>"channels"}
+Rendering template within layouts/channels
+Rendering channels/new
+Completed in 0.07086 (14 reqs/sec) | Rendering: 0.01304 (18%) | DB: 0.00000 (0%) | 200 OK [http://localhost/channels/new]
+
+
+Processing ChannelsController#create (for 127.0.0.1 at 2008-03-22 14:15:47) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZmQwNzYxYjhhM2JmNGM5Y2I2MjE5NjRjM2UxNTFi%0AYjUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--9eaf41c748ddbacda4521d41934a9d732f18a057
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"9c78d658114329cf553b833fe66e272f99c62d80", "action"=>"create", "controller"=>"channels", "channel"=>{"name"=>"#thecentraleastern", "channel_wins"=>"1", "public"=>"0"}}
+  [4;35;1mChannel Create (0.001992)[0m   [0mINSERT INTO channels ("name", "channel_wins", "updated_at", "public", "created_at") VALUES('#thecentraleastern', 't', '2008-03-22 14:15:47', 'f', '2008-03-22 14:15:47')[0m
+Redirected to http://localhost:3000/channels/2
+Completed in 0.07225 (13 reqs/sec) | DB: 0.00199 (2%) | 302 Found [http://localhost/channels]
+
+
+Processing ChannelsController#show (for 127.0.0.1 at 2008-03-22 14:15:47) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZmQwNzYxYjhhM2JmNGM5Y2I2MjE5NjRjM2UxNTFi%0AYjUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoLbm90aWNlIiZDaGFubmVsIHdhcyBzdWNjZXNzZnVsbHkgY3JlYXRl%0AZC4GOgpAdXNlZHsGOwdU--267166417a35b948b33d351eebc0d8960dbb4a7f
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"channels"}
+  [4;36;1mChannel Load (0.002297)[0m   [0;1mSELECT * FROM channels WHERE (channels."id" = 2) [0m
+Rendering template within layouts/channels
+Rendering channels/show
+Completed in 0.06477 (15 reqs/sec) | Rendering: 0.01534 (23%) | DB: 0.00230 (3%) | 200 OK [http://localhost/channels/2]
+
+
+Processing ChannelsController#index (for 127.0.0.1 at 2008-03-22 14:15:48) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZmQwNzYxYjhhM2JmNGM5Y2I2MjE5NjRjM2UxNTFi%0AYjUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--9eaf41c748ddbacda4521d41934a9d732f18a057
+  Parameters: {"action"=>"index", "controller"=>"channels"}
+  [4;35;1mChannel Load (0.002811)[0m   [0mSELECT * FROM channels [0m
+Rendering template within layouts/channels
+Rendering channels/index
+Completed in 0.08218 (12 reqs/sec) | Rendering: 0.01729 (21%) | DB: 0.00281 (3%) | 200 OK [http://localhost/channels]
+
+
+Processing ChannelsController#edit (for 127.0.0.1 at 2008-03-22 14:15:52) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZmQwNzYxYjhhM2JmNGM5Y2I2MjE5NjRjM2UxNTFi%0AYjUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--9eaf41c748ddbacda4521d41934a9d732f18a057
+  Parameters: {"action"=>"edit", "id"=>"2", "controller"=>"channels"}
+  [4;36;1mChannel Load (0.002244)[0m   [0;1mSELECT * FROM channels WHERE (channels."id" = 2) [0m
+Rendering template within layouts/channels
+Rendering channels/edit
+Completed in 0.38438 (2 reqs/sec) | Rendering: 0.03533 (9%) | DB: 0.00224 (0%) | 200 OK [http://localhost/channels/2/edit]
+
+
+Processing ChannelsController#update (for 127.0.0.1 at 2008-03-22 14:15:54) [PUT]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZmQwNzYxYjhhM2JmNGM5Y2I2MjE5NjRjM2UxNTFi%0AYjUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--9eaf41c748ddbacda4521d41934a9d732f18a057
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"9c78d658114329cf553b833fe66e272f99c62d80", "_method"=>"put", "action"=>"update", "id"=>"2", "controller"=>"channels", "channel"=>{"name"=>"#thecentraleastern", "channel_wins"=>"0", "public"=>"0"}}
+  [4;35;1mChannel Load (0.002243)[0m   [0mSELECT * FROM channels WHERE (channels."id" = 2) [0m
+  [4;36;1mChannel Update (0.004993)[0m   [0;1mUPDATE channels SET "created_at" = '2008-03-22 14:15:47', "public" = 'f', "channel_wins" = 'f', "name" = '#thecentraleastern', "updated_at" = '2008-03-22 14:15:54' WHERE "id" = 2[0m
+Redirected to http://localhost:3000/channels/2
+Completed in 0.08401 (11 reqs/sec) | DB: 0.00724 (8%) | 302 Found [http://localhost/channels/2]
+
+
+Processing ChannelsController#show (for 127.0.0.1 at 2008-03-22 14:15:54) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZmQwNzYxYjhhM2JmNGM5Y2I2MjE5NjRjM2UxNTFi%0AYjUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7BjoLbm90aWNlIiZDaGFubmVsIHdhcyBzdWNjZXNzZnVsbHkgdXBkYXRl%0AZC4GOgpAdXNlZHsGOwdU--55034c2ab1cca950cf138017a9da98e41c552066
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"channels"}
+  [4;35;1mChannel Load (0.002385)[0m   [0mSELECT * FROM channels WHERE (channels."id" = 2) [0m
+Rendering template within layouts/channels
+Rendering channels/show
+Completed in 0.06714 (14 reqs/sec) | Rendering: 0.02729 (40%) | DB: 0.00239 (3%) | 200 OK [http://localhost/channels/2]
+
+
+Processing ChannelsController#index (for 127.0.0.1 at 2008-03-22 14:15:55) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZmQwNzYxYjhhM2JmNGM5Y2I2MjE5NjRjM2UxNTFi%0AYjUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--9eaf41c748ddbacda4521d41934a9d732f18a057
+  Parameters: {"action"=>"index", "controller"=>"channels"}
+  [4;36;1mChannel Load (0.004795)[0m   [0;1mSELECT * FROM channels [0m
+Rendering template within layouts/channels
+Rendering channels/index
+Completed in 0.10257 (9 reqs/sec) | Rendering: 0.03358 (32%) | DB: 0.00480 (4%) | 200 OK [http://localhost/channels]
+
+
+Processing TriggersController#index (for 127.0.0.1 at 2008-03-22 14:16:14) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZmQwNzYxYjhhM2JmNGM5Y2I2MjE5NjRjM2UxNTFi%0AYjUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--9eaf41c748ddbacda4521d41934a9d732f18a057
+  Parameters: {"action"=>"index", "controller"=>"triggers"}
+  [4;35;1mTrigger Load (0.001555)[0m   [0mSELECT * FROM triggers [0m
+Rendering template within layouts/triggers
+Rendering triggers/index
+Completed in 0.02793 (35 reqs/sec) | Rendering: 0.00513 (18%) | DB: 0.00155 (5%) | 200 OK [http://localhost/triggers]
+
+
+Processing TriggersController#new (for 127.0.0.1 at 2008-03-22 14:16:16) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZmQwNzYxYjhhM2JmNGM5Y2I2MjE5NjRjM2UxNTFi%0AYjUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--9eaf41c748ddbacda4521d41934a9d732f18a057
+  Parameters: {"action"=>"new", "controller"=>"triggers"}
+Rendering template within layouts/triggers
+Rendering triggers/new
+Completed in 0.08899 (11 reqs/sec) | Rendering: 0.02385 (26%) | DB: 0.00000 (0%) | 200 OK [http://localhost/triggers/new]
+
+
+Processing TriggersController#index (for 127.0.0.1 at 2008-03-22 14:16:18) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZmQwNzYxYjhhM2JmNGM5Y2I2MjE5NjRjM2UxNTFi%0AYjUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--9eaf41c748ddbacda4521d41934a9d732f18a057
+  Parameters: {"action"=>"index", "controller"=>"triggers"}
+  [4;36;1mTrigger Load (0.001881)[0m   [0;1mSELECT * FROM triggers [0m
+Rendering template within layouts/triggers
+Rendering triggers/index
+Completed in 0.10291 (9 reqs/sec) | Rendering: 0.01199 (11%) | DB: 0.00188 (1%) | 200 OK [http://localhost/triggers]
+  [4;36;1mAdmin Load (0.002893)[0m   [0;1mSELECT * FROM admins LIMIT 1[0m
+  [4;35;1mTrigger Load (0.001028)[0m   [0mSELECT * FROM triggers WHERE (triggers.admin_id = 1) [0m
+  [4;36;1mAdmin Load (0.002328)[0m   [0;1mSELECT * FROM admins LIMIT 1[0m
+  [4;35;1mChannel Load (0.002404)[0m   [0mSELECT * FROM channels LIMIT 1[0m
+  [4;36;1mTrigger Create (0.004532)[0m   [0;1mINSERT INTO triggers ("answer", "channel_id", "updated_at", "admin_id", "question", "created_at") VALUES('Rails, obviously.', 1, '2008-03-22 14:19:02', 1, 'What''s better? Rails or PHP?', '2008-03-22 14:19:02')[0m
+
+
+Processing TriggersController#index (for 127.0.0.1 at 2008-03-22 14:19:19) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZmQwNzYxYjhhM2JmNGM5Y2I2MjE5NjRjM2UxNTFi%0AYjUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--9eaf41c748ddbacda4521d41934a9d732f18a057
+  Parameters: {"action"=>"index", "controller"=>"triggers"}
+  [4;35;1mTrigger Load (0.003486)[0m   [0mSELECT * FROM triggers [0m
+Rendering template within layouts/triggers
+Rendering triggers/index
+Completed in 0.06147 (16 reqs/sec) | Rendering: 0.02131 (34%) | DB: 0.00349 (5%) | 200 OK [http://localhost/triggers]
+
+
+Processing AdminsController#index (for 127.0.0.1 at 2008-03-22 14:19:24) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZmQwNzYxYjhhM2JmNGM5Y2I2MjE5NjRjM2UxNTFi%0AYjUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--9eaf41c748ddbacda4521d41934a9d732f18a057
+  Parameters: {"action"=>"index", "controller"=>"admins"}
+  [4;36;1mAdmin Load (0.002825)[0m   [0;1mSELECT * FROM admins [0m
+Rendering template within layouts/admins
+Rendering admins/index
+Completed in 0.04593 (21 reqs/sec) | Rendering: 0.01613 (35%) | DB: 0.00283 (6%) | 200 OK [http://localhost/admins]
+
+
+Processing ChannelsController#index (for 127.0.0.1 at 2008-03-22 14:19:39) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZmQwNzYxYjhhM2JmNGM5Y2I2MjE5NjRjM2UxNTFi%0AYjUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--9eaf41c748ddbacda4521d41934a9d732f18a057
+  Parameters: {"action"=>"index", "controller"=>"channels"}
+  [4;35;1mChannel Load (0.007707)[0m   [0mSELECT * FROM channels [0m
+Rendering template within layouts/channels
+Rendering channels/index
+Completed in 0.07333 (13 reqs/sec) | Rendering: 0.01619 (22%) | DB: 0.00771 (10%) | 200 OK [http://localhost/channels]
+
+
+Processing TriggersController#index (for 127.0.0.1 at 2008-03-22 14:20:05) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZmQwNzYxYjhhM2JmNGM5Y2I2MjE5NjRjM2UxNTFi%0AYjUiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh%0Ac2h7AAY6CkB1c2VkewA%3D--9eaf41c748ddbacda4521d41934a9d732f18a057
+  Parameters: {"action"=>"index", "controller"=>"triggers"}
+  [4;36;1mTrigger Load (0.002980)[0m   [0;1mSELECT * FROM triggers [0m
+Rendering template within layouts/triggers
+Rendering triggers/index
+Completed in 0.04133 (24 reqs/sec) | Rendering: 0.01661 (40%) | DB: 0.00298 (7%) | 200 OK [http://localhost/triggers]

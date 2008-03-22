@@ -41,6 +41,10 @@ h1#header a {
 	margin: 0;
 }
 
+h1#header a:hover {
+	background: transparent;
+}
+
 ul#navigation {
 	margin: 0;
 	list-style: none;

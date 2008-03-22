@@ -1,5 +1,5 @@
 .item.channel
-  %h4= channel.name
+  %h4= link_to channel.name, :action => "show", :id => channel.id
   %ul
     %li
       Administrated by

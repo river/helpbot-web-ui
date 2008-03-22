@@ -1,9 +1,10 @@
-require "digest/sha1"
+require "digest/md5"
 
 class Admin < ActiveRecord::Base
   attr_accessor :password
   has_many :triggers
   has_and_belongs_to_many :channels
+  helper_method :admin_of
   
   # validation 
   validates_length_of	  	:email,     :within => 3..100 
@@ -29,7 +30,14 @@ class Admin < ActiveRecord::Base
 
   # sha1 a password
   def self.encrypt(pass)
-    Digest::SHA1.hexdigest(pass)
+    Digest::MD5.hexdigest(pass)
+  end
+  
+  # list all channels an admin admins
+  def admin_of
+    self.channels.each do |chan|
+      return chan.name
+    end
   end
   
   protected

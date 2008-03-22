@@ -4,6 +4,8 @@ class Channel < ActiveRecord::Base
   
   validates_presence_of :name
   
+  helper_method :admin_logins
+  
   def admin_logins
     self.admins.each do |admin|
       return admin.login

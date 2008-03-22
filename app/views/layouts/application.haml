@@ -17,9 +17,9 @@
     %h1#header= link_to "IRC Help Bot", "/"
     
     %ul#navigation
-      %li= link_to "Channels", channels_url, :class => "current"
-      %li= link_to "Triggers", triggers_url
-      %li= link_to "Admins", admins_url
+      %li= navi_tab_to "Channels", channels_url
+      %li= navi_tab_to "Triggers", triggers_url
+      %li= navi_tab_to "Admins", admins_url
     
     #body
       

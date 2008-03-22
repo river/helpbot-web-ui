@@ -111,6 +111,17 @@ a:hover {
 	color: #fff;
 }
 
+div#statusbar a {
+	border: none;
+	padding: 0;
+	color: #fff;
+}
+
+div#statusbar a:hover {
+	color: #ddd;
+	background: transparent;
+}
+
 p, ul, ol, blockquote, h1, h2, h3, h4, h5, h6 {
 	margin-bottom: 0.5em;
 }

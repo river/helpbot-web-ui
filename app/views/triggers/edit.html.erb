@@ -1,0 +1,32 @@
+<h1>Editing trigger</h1>
+
+<%= error_messages_for :trigger %>
+
+<% form_for(@trigger) do |f| %>
+  <p>
+    <b>Channel</b><br />
+    <%= f.text_field :channel_id %>
+  </p>
+
+  <p>
+    <b>Admin</b><br />
+    <%= f.text_field :admin_id %>
+  </p>
+
+  <p>
+    <b>Question</b><br />
+    <%= f.text_field :question %>
+  </p>
+
+  <p>
+    <b>Answer</b><br />
+    <%= f.text_field :answer %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @trigger %> |
+<%= link_to 'Back', triggers_path %>

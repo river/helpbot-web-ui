@@ -1,0 +1,23 @@
+<p>
+  <b>Login:</b>
+  <%=h @admin.login %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @admin.name %>
+</p>
+
+<p>
+  <b>Hashed password:</b>
+  <%=h @admin.hashed_password %>
+</p>
+
+<p>
+  <b>Global:</b>
+  <%=h @admin.global %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_path(@admin) %> |
+<%= link_to 'Back', admins_path %>

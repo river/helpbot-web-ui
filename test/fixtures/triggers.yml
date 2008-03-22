@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  channel_id: 1
+  admin_id: 1
+  question: MyString
+  answer: MyString
+
+two:
+  channel_id: 1
+  admin_id: 1
+  question: MyString
+  answer: MyString

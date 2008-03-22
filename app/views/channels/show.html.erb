@@ -1,0 +1,18 @@
+<p>
+  <b>Name:</b>
+  <%=h @channel.name %>
+</p>
+
+<p>
+  <b>Channel wins:</b>
+  <%=h @channel.channel_wins %>
+</p>
+
+<p>
+  <b>Public:</b>
+  <%=h @channel.public %>
+</p>
+
+
+<%= link_to 'Edit', edit_channel_path(@channel) %> |
+<%= link_to 'Back', channels_path %>

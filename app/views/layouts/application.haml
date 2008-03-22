@@ -9,15 +9,18 @@
   = javascript_include_tag :defaults
 
 %body
-  
   #container
+  
     #statusbar
       - if logged_in?
         %p Logged in as #{@current_admin.name} |
         = link_to "(Logout?)",	:controller => "sessions", :action => "destroy"
-	  - else
-	    = link_to "join us", :controller => "admins", :action => "new"
-	    = link_to "login", :controller => "sessions", :action => "new"
+      - else
+        %p
+          You aren&#8217;t logged in. Please
+          = link_to "sign up", :controller => "admins", :action => "new"
+          or
+          = link_to "login", :controller => "sessions", :action => "new"
     
     %h1#header= link_to "IRC Help Bot", "/"
     

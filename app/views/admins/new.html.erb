@@ -1,31 +1,27 @@
-<h1>New admin</h1>
-
-<%= error_messages_for :admin %>
-
-<% form_for(@admin) do |f| %>
-  <p>
-    <b>Login</b><br />
-    <%= f.text_field :login %>
-  </p>
-
-  <p>
-    <b>Name</b><br />
-    <%= f.text_field :name %>
-  </p>
-
-  <p>
-    <b>Hashed password</b><br />
-    <%= f.text_field :hashed_password %>
-  </p>
-
-  <p>
-    <b>Global</b><br />
-    <%= f.check_box :global %>
-  </p>
-
-  <p>
-    <%= f.submit "Create" %>
-  </p>
-<% end %>
-
-<%= link_to 'Back', admins_path %>
+<h1>Register To Become a Member</h1> 
+<div class="form"> 
+<%= error_messages_for :user -%> 
+<fieldset> 
+<legend>Create a TucsonRails Account</legend> 
+<% form_for :user, :url => { :action => "create" } do |form| %> 
+<div> 
+<%= form.label :name %>:<br /> 
+<%= form.text_field :name, :class => "short" %> 
+</div> 
+<div> 
+<%= form.label :email %>:<br /> 
+<%= form.text_field :email, :class => "short" %> 
+</div> 
+<div> 
+<%= form.label :password %>:<br /> 
+<%= form.password_field :password, :class => "short" %> 
+</div> 
+<div> 
+<%= form.label :password_confirmation %>:<br /> 
+<%= form.password_field :password_confirmation, 
+:class => "short" %> 
+</div> 
+<%= submit_tag "Submit" %> 
+<% end %> 
+</fieldset> 
+</div

@@ -1,8 +1,10 @@
 class AdminsController < ApplicationController
+  before_filter :find_admin, :except => [:index, :new, :create]
+  
   # GET /admins
   # GET /admins.xml
   def index
-    @admins = Admin.find(:all)
+    @admins = Admin.find(:all, :order => "name")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,8 +15,7 @@ class AdminsController < ApplicationController
   # GET /admins/1
   # GET /admins/1.xml
   def show
-    @admin = Admin.find(params[:id])
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @admin }
@@ -34,7 +35,7 @@ class AdminsController < ApplicationController
 
   # GET /admins/1/edit
   def edit
-    @admin = Admin.find(params[:id])
+    
   end
 
   # POST /admins
@@ -45,6 +46,7 @@ class AdminsController < ApplicationController
     respond_to do |format|
       if @admin.save
         flash[:notice] = 'Admin was successfully created.'
+        session[:admin] = @admin.id
         format.html { redirect_to(@admin) }
         format.xml  { render :xml => @admin, :status => :created, :location => @admin }
       else
@@ -57,8 +59,7 @@ class AdminsController < ApplicationController
   # PUT /admins/1
   # PUT /admins/1.xml
   def update
-    @admin = Admin.find(params[:id])
-
+    
     respond_to do |format|
       if @admin.update_attributes(params[:admin])
         flash[:notice] = 'Admin was successfully updated.'
@@ -74,12 +75,16 @@ class AdminsController < ApplicationController
   # DELETE /admins/1
   # DELETE /admins/1.xml
   def destroy
-    @admin = Admin.find(params[:id])
     @admin.destroy
 
     respond_to do |format|
       format.html { redirect_to(admins_url) }
       format.xml  { head :ok }
     end
+  end
+  
+  private
+  def find_admin
+    @admin = Admin.find(params[:id])
   end
 end

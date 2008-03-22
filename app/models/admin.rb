@@ -1,3 +1,5 @@
+require "digest/sha1"
+
 class Admin < ActiveRecord::Base
   attr_accessor :password
   has_many :triggers

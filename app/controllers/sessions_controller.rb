@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
   def new 
   end 
-- 
+
   def create 
     @current_admin = Admin.authenticate(params[:login], params[:password]) 
     if @current_admin 

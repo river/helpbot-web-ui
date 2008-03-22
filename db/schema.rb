@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 4) do
+ActiveRecord::Schema.define(:version => 5) do
 
   create_table "admins", :force => true do |t|
     t.string   "login"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 4) do
     t.boolean  "global"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "email"
   end
 
   create_table "admins_channels", :id => false, :force => true do |t|

@@ -15,20 +15,10 @@ class AdminsController < ApplicationController
   # GET /admins/1
   # GET /admins/1.xml
   def show
+    @admin = Admin.find(params[:id])
     
     respond_to do |format|
       format.html # show.html.erb
-      format.xml  { render :xml => @admin }
-    end
-  end
-
-  # GET /admins/new
-  # GET /admins/new.xml
-  def new
-    @admin = Admin.new
-
-    respond_to do |format|
-      format.html # new.html.erb
       format.xml  { render :xml => @admin }
     end
   end
@@ -84,7 +74,7 @@ class AdminsController < ApplicationController
   end
   
   private
-  def find_admin
-    @admin = Admin.find(params[:id])
-  end
+    def find_admin
+      @admin = Admin.find(params[:id])
+    end
 end

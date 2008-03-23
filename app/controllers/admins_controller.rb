@@ -1,8 +1,7 @@
 class AdminsController < ApplicationController
   before_filter :find_admin, :except => [:index, :new, :create]
+  before_filter :has_permission?, :except => [:index, :show, :create]
   
-  # GET /admins
-  # GET /admins.xml
   def index
     @admins = Admin.find(:all, :order => "name")
 
@@ -12,10 +11,7 @@ class AdminsController < ApplicationController
     end
   end
 
-  # GET /admins/1
-  # GET /admins/1.xml
   def show
-    @admin = Admin.find(params[:id])
     
     respond_to do |format|
       format.html # show.html.erb
@@ -23,20 +19,12 @@ class AdminsController < ApplicationController
     end
   end
 
-  # GET /admins/1/edit
-  def edit
-    redirect_to(@admin) if @current_admin.id != @admin.id && !@current_admin.global
-  end
 
-  # POST /admins
-  # POST /admins.xml
   def create
     @admin = Admin.new(params[:admin])
     @admin.global = false
     
     respond_to do |format|
-      # TODO: in a situation where there is one local admin and one global admin and the global admin deletes him/herself, make the local admin global.
-      
       if @admin.save
         if @admin.id == 1
           @admin.update_attributes(:global => true)
@@ -55,11 +43,11 @@ class AdminsController < ApplicationController
     end
   end
 
-  # PUT /admins/1
-  # PUT /admins/1.xml
+  def edit
+  end
+  
   def update
-    redirect_to(@admin) if @current_admin.id != @admin.id && !@current_admin.global
-    logger.debug "attempting to update admin (id of " + params[:id] + ")"
+    
     respond_to do |format|
       if @admin.update_attributes(params[:id])
         flash[:notice] = 'Admin was successfully updated.'
@@ -72,11 +60,8 @@ class AdminsController < ApplicationController
     end
   end
 
-  # DELETE /admins/1
-  # DELETE /admins/1.xml
   def destroy
-    redirect_to(@admin) if @current_admin.id != @admin.id && !@current_admin.global
-    @admin.destroy
+    @admin.destroy unless @admin.global
 
     respond_to do |format|
       format.html { redirect_to(admins_url) }
@@ -87,5 +72,9 @@ class AdminsController < ApplicationController
   private
     def find_admin
       @admin = Admin.find(params[:id])
+    end
+    
+    def has_permission?
+      logged_in? and (@current_admin.global or @admin.id == @current_admin.id)
     end
 end

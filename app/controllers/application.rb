@@ -17,11 +17,11 @@ class ApplicationController < ActionController::Base
   end
   
   def owns_channel(chan)
-    @current_admin.channel_ids.member?(chan.id)
+    @current_admin.channel_ids.member?(chan.id) || @current_admin.global
   end
   
   def owns_trigger(trig)
-    @current_admin.trigger_ids.member?(trig.id)
+    @current_admin.trigger_ids.member?(trig.id) || @current_admin.global
   end
 
   # setup user info on each page 

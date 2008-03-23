@@ -1,20 +1,15 @@
-%h2=h @channel.name
+= render :partial => "channel", :item => @channel
 
-%p= link_to "Edit", edit_channel_path(@channel)
+%h3
+  Add a trigger to
+  =h @channel.name
 
-%ul
-  %li
-    - if @channel.channel_wins
-      =h @channel.name
-      <strong>takes priority</strong> over global triggers.
-    - else
-      =h @channel.name
-      <strong>doesn&#8217;t take priority</strong> over global triggers.
-  %li
-    - if @channel.public
-      Helpbot is currently <strong>actively responding</strong> to this channel.
-    - else
-      Helpbot is currently <strong>disabled</strong> on this channel.
-  %li
-    %strong Admins
-    =h admin_logins
+- if logged_in?
+  - form_tag :action => "create_trigger", :channel_id => @channel do
+    = render :partial => "triggers/form"
+    = submit_tag "Add Trigger"
+- else
+  %p
+    You aren&#8217;t logged in. Please
+    = link_to "log in", login_path
+    to add new triggers.

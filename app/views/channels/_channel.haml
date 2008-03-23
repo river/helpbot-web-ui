@@ -1,6 +1,19 @@
 .item.channel
   %h4= link_to channel.name, :action => "show", :id => channel.id
   %ul
+    - if channel.channel_wins
+      %li
+        =h channel.name
+        <strong>takes priority</strong> over global triggers.
+    - else
+      %li
+        =h channel.name
+        <strong>doesn&#8217;t take priority</strong> over global triggers.
     %li
-      Administrated by
-      = channel.admin_logins
+      - if channel.public
+        Helpbot is currently <strong>actively responding</strong> to this channel.
+      - else
+        Helpbot is currently <strong>disabled</strong> on this channel.
+    %li
+      %strong Admins:
+      =h admin_logins channel

@@ -20,9 +20,9 @@
       - else
         %p
           You aren&#8217;t logged in. Please
-          = link_to "sign up", :controller => "admins", :action => "new"
+          = link_to "signup", signup_path
           or
-          = link_to "login", :controller => "sessions", :action => "new"
+          = link_to "login", login_path
     
     %h1#header= link_to "IRC Help Bot", "/"
     

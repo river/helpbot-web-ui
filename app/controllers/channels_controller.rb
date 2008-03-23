@@ -20,6 +20,23 @@ class ChannelsController < ApplicationController
       format.xml  { render :xml => @channel }
     end
   end
+  
+  def create_trigger
+    @channel = Channel.find(params[:channel_id])
+    @trigger = @channel.triggers.new(params[:trigger])
+    @trigger.admin_id = @current_admin.id
+    
+    respond_to do |format|
+      if @trigger.save
+        flash[:notice] = "Trigger was successfully added to " + @channel.name + "."
+        format.html { redirect_to(@channel) }
+        format.xml  { render :xml => @trigger, :status => :created, :location => @channel }
+      else
+        format.html { render :action => "show", :id => @channel }
+        format.xml  { render :xml => @channel.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
 
   # GET /channels/new
   # GET /channels/new.xml

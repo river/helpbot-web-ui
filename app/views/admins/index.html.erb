@@ -11,7 +11,7 @@
     <td><%=h admin.name %></td>
     <td><%=h admin.global %></td>
     <td><%= link_to 'Show', admin %></td>
-    <td><%= link_to 'Edit', edit_admin_path(admin) if logged_in? && @current_admin.id == @admin.id %></td>
+    <td><%= link_to 'Edit', edit_admin_path(admin) if am_myself? %></td>
   </tr>
 <% end %>
 </table>

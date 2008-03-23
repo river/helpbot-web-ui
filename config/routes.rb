@@ -1,6 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :triggers
   map.resources :admins
+  map.resources :channels
   
   map.trigger	'channels/:channel_id/triggers/:action/:id',
   				:controller => "triggers",

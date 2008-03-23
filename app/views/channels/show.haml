@@ -10,7 +10,7 @@
 - else
   %p None. :(
 
-- if owns_channel(@channel)
+- if owns_channel(@channel) or is_global?
   %h3
     Add a trigger to
     =h @channel.name

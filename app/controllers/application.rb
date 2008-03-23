@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
  
   # Check if the user is already logged in 
   def logged_in? 
-    @current_admin.is_a?(Admin) 
+    @current_admin.is_a?(Admin)
   end 
 
   # setup user info on each page 

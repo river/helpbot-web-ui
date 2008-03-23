@@ -19,5 +19,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_trigger_path(@trigger) if @current_admin.triggers.member?(@trigger) || is_global? %> |
+<%= link_to 'Edit', edit_trigger_path(@trigger) unless owns_channel(@channel) %> |
 <%= link_to 'Back', triggers_path %>

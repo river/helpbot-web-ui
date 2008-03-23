@@ -10,16 +10,10 @@
 - else
   %p None. :(
 
-%h3
-  Add a trigger to
-  =h @channel.name
-
-- if logged_in? && owns_channel(@channel)
+- if owns_channel(@channel)
+  %h3
+    Add a trigger to
+    =h @channel.name
   - form_tag :action => "create_trigger", :channel_id => @channel do
     = render :partial => "triggers/form"
     = submit_tag "Add Trigger"
-- else
-  %p
-    You aren&#8217;t 
-    = link_to "logged in", login_path
-    or are not marked as an admin for this channel

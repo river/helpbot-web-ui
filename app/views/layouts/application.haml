@@ -13,16 +13,20 @@
   
     #statusbar
       - if logged_in?
-        %p
+        %p.left
           Logged in as
-          = @current_admin.longest_name
-          = link_to "(Logout?)",	:controller => "sessions", :action => "destroy"
+          = link_to @current_admin.longest_name, @current_admin
+        %p.right
+          = link_to "Logout?",	:controller => "sessions", :action => "destroy"
       - else
-        %p
-          You aren&#8217;t logged in. Please
+        %p.left
+          You aren&#8217;t logged in.
+        %p.right
+          Please
           = link_to "signup", signup_path
           or
           = link_to "login", login_path
+      .clear
     
     %h1#header= link_to "IRC Help Bot", "/"
     

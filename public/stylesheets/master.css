@@ -5,6 +5,8 @@
 
 * { margin: 0; padding: 0; }
 
+.clear { clear: both; }
+
 body {
 	font: 14px/1.2em Verdana, Helvetica, Arial, sans-serif;
 	background: #555;
@@ -17,8 +19,7 @@ div#container {
 
 div#statusbar {
 	background: #777;
-	padding: 0.5em 1em 0.7em 0;
-	text-align: right;
+	padding: 0.5em 1em 0.7em 1em;
 	color: #ddd;
 	-webkit-border-bottom-left-radius: 5px;
 	-webkit-border-bottom-right-radius: 5px;
@@ -30,8 +31,16 @@ div#statusbar p {
 	margin: 0;
 }
 
+div#statusbar p.left {
+	float: left;
+}
+
+div#statusbar p.right {
+	float: right;
+}
+
 h1#header {
-	margin: 1.5em 0;
+	margin: 1.5em 0.5em;
 }
 
 h1#header a {

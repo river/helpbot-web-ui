@@ -25,7 +25,7 @@ class AdminsController < ApplicationController
 
   # GET /admins/1/edit
   def edit
-    return if @current_admin.id != @admin.id && !@current_admin.global || !logged_in?
+    return if @current_admin.id != @admin.id && !@current_admin.global
   end
 
   # POST /admins
@@ -50,7 +50,7 @@ class AdminsController < ApplicationController
   # PUT /admins/1
   # PUT /admins/1.xml
   def update
-    return if @current_admin.id != @admin.id && !@current_admin.global || !logged_in?
+    return if @current_admin.id != @admin.id && !@current_admin.global
     
     respond_to do |format|
       if @admin.update_attributes(params[:admin])
@@ -67,7 +67,7 @@ class AdminsController < ApplicationController
   # DELETE /admins/1
   # DELETE /admins/1.xml
   def destroy
-    return if @current_admin.id != @admin.id && !@current_admin.global || !logged_in?
+    return if @current_admin.id != @admin.id && !@current_admin.global
     @admin.destroy
 
     respond_to do |format|

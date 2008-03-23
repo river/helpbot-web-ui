@@ -27,6 +27,6 @@
   %p
     %label Global Admin?
     - if logged_in? and @current_admin.global
-      = check_box :global
+      = check_box :admin, :global
     - else
-      = h admin.global
+      = h @admin.global

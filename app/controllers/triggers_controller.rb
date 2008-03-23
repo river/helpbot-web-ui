@@ -75,7 +75,7 @@ class TriggersController < ApplicationController
     end
     
     def has_permission?
-      render :controller => "sessions", :action => "new" unless logged_in?
+      render "/login" unless logged_in?
       owns_channel(@channel)
     end
 end

@@ -35,7 +35,7 @@ class TriggersController < ApplicationController
   # GET /triggers/1/edit
   def edit
     @trigger = Trigger.find(params[:id])
-    redirect_to(@trigger) if !owns_trigger(@trigger)
+    redirect_to(@trigger) unless owns_trigger(@trigger)
   end
 
   # POST /triggers

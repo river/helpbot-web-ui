@@ -15,7 +15,7 @@
       - if logged_in?
         %p
           Logged in as
-          = @current_admin.name
+          = @current_admin.longest_name
           = link_to "(Logout?)",	:controller => "sessions", :action => "destroy"
       - else
         %p

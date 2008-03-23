@@ -51,9 +51,9 @@ class AdminsController < ApplicationController
   # PUT /admins/1.xml
   def update
     redirect_to(@admin) if @current_admin.id != @admin.id && !@current_admin.global
-    
+    logger.debug "attempting to update admin (id of " + params[:id] + ")"
     respond_to do |format|
-      if @admin.update_attributes(params[:admin])
+      if @admin.update_attributes(params[:id])
         flash[:notice] = 'Admin was successfully updated.'
         format.html { redirect_to(@admin) }
         format.xml  { head :ok }

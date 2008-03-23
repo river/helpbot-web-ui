@@ -8,7 +8,8 @@ class Admin < ActiveRecord::Base
   # validation 
   validates_length_of	  	:email,     :within => 3..100 
   validates_uniqueness_of	:email,	  	:case_sensitive => false 
-  validates_presence_of		:name,	  	:login
+  validates_uniqueness_of	:login,     :case_sensitive => false
+  validates_presence_of   :login, :email, :password
   validates_length_of	  	:password,	:within => 4..40, 
 										      :if =>      :password_required? 
   validates_confirmation_of :password,	:if => :password_required? 
@@ -41,7 +42,7 @@ class Admin < ActiveRecord::Base
   
   # returns longest name possible
   def longest_name
-    self.name ? self.name : self.login
+    self.name == "" ? self.login.humanize : self.name
   end
   
   

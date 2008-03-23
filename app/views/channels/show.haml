@@ -2,7 +2,7 @@
 
 %h3= @channel.name.to_s + "&#8217;s Triggers"
 
-- if @channel.triggers
+- unless @channel.triggers == []
   %dl
     - @channel.triggers.each do |trigger|
       %dt=h trigger.question + " (" + trigger.admin.name + ")"

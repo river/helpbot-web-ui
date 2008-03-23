@@ -29,6 +29,8 @@ module ApplicationHelper
     "#{submit_tag(name)} or #{link_to 'Cancel', options, :class => 'cancel'}"
   end
   
+  # TODO: logged_in?, owns_channel, and owns_trigger are also in ApplicationController. Please D.R.Y. this up.
+  
   def logged_in? 
     @current_admin.is_a?(Admin) 
   end

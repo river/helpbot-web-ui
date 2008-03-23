@@ -9,7 +9,7 @@ module ApplicationHelper
   end
   
   def owns_channel(chan)
-    if chan.is_a?(Channel)
+    if logged_in?
       @current_admin.channel_ids.member?(chan.id) || @current_admin.global
     else
       return false
@@ -17,7 +17,7 @@ module ApplicationHelper
   end
 
   def owns_trigger(trig)
-    if trig.is_a?(Trigger)
+    if logged_in?
       @current_admin.trigger_ids.member?(trig.id) || @current_admin.global
     else
       return false

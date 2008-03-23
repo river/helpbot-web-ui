@@ -20,14 +20,14 @@ class TriggersController < ApplicationController
   #  end
   #end
    
-  #def new
-  #  @trigger = Trigger.new
-  #    
-  #  respond_to do |format|
-  #    format.html 
-  #    format.xml  { render :xml => @trigger }
-  #  end
-  #end
+  def new
+    @trigger = Trigger.new
+      
+    respond_to do |format|
+      format.html 
+      format.xml  { render :xml => @trigger }
+    end
+  end
   
   def create
     @trigger = Trigger.new(params[:trigger])

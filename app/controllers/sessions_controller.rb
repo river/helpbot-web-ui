@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       flash[:notice] = "Welcome, " + @current_admin.longest_name + "!"
       redirect_to root_url
     else 
-      flash[:notice] = "No user was found with this login/password" 
+      flash[:notice] = "Incorrect login or password. Please try again." 
       render :action => 'new' 
     end 
   end

@@ -2,7 +2,7 @@ module AdminsHelper
 
   def admin_of
     @admin.channels.each do |chan|
-      return chan.name
+      puts chan.name+" "
     end
   end
 end

@@ -1,0 +1,24 @@
+= error_messages_for :admin
+
+%p
+  %label Login:<br />
+  = text_field :admin, :login
+
+%p
+  %label Real Name:<br />
+  = text_field :admin, :name
+
+%p
+  %label Password:<br />
+  = text_field :admin, :password
+
+%p
+  %label Confirm Password:<br />
+  = text_field :admin, :password_confirmation
+
+%p
+  %label Global?
+  - if is_global?
+    = check_box :global
+  - else
+    = h @admin.global

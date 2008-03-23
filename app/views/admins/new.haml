@@ -1,0 +1,35 @@
+%h2 Sign Up
+
+- form_tag :action => "create"
+  = render :partial => "form"
+  %p= submit_tag_or_cancel "Sign Up"
+
+/ <h1>Register To Become a Member</h1> 
+/ <div class="form"> 
+/ <%= error_messages_for :admin -%> 
+/ 
+/ <% form_for :admin, :url => { :action => "create" } do |form| %> 
+/ <div> 
+/ <%= form.label :name %>:<br /> 
+/ <%= form.text_field :name, :class => "short" %> 
+/ </div>
+/ <div> 
+/ <%= form.label :login %>:<br /> 
+/ <%= form.text_field :login, :class => "short" %> 
+/ </div> 
+/ <div> 
+/ <%= form.label :email %>:<br /> 
+/ <%= form.text_field :email, :class => "short" %> 
+/ </div> 
+/ <div> 
+/ <%= form.label :password %>:<br /> 
+/ <%= form.password_field :password, :class => "short" %> 
+/ </div> 
+/ <div> 
+/ <%= form.label :password_confirmation %>:<br /> 
+/ <%= form.password_field :password_confirmation, 
+/ :class => "short" %> 
+/ </div> 
+/ <%= submit_tag "Submit" %> 
+/ <% end %>  
+/ </div>

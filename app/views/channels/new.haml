@@ -1,5 +1,5 @@
 %h2 Add Channel
 
-- form_tag :action => "create" do
+- form_tag :action => "create", :admin_id => @current_admin.id do
   = render :partial => "form"
   %p= submit_tag_or_cancel "Create"

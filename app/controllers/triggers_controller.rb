@@ -75,6 +75,7 @@ class TriggersController < ApplicationController
     end
     
     def has_permission?
+      redirect_to(login_url) unless logged_in?
       owns_channel(@channel)
     end
 end

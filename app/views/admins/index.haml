@@ -1,3 +1,5 @@
-%h2 All Admins
+%h2 All Help Bot Admins
+
+%p= link_to "New Admin", signup_path, :class => "new"
 
 = render :partial => "admin", :collection => @admins

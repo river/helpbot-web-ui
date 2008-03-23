@@ -1,5 +1,5 @@
-%h2 All Helpbot Channels
+%h2 All Help Bot Channels
 
-%p= link_to "New Channel", new_channel_path
+%p= link_to "New Channel", new_channel_path, :class => "new"
 
 = render :partial => "channel", :collection => @channels

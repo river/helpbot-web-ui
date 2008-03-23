@@ -1,4 +1,7 @@
-/* @override http://localhost:3000/stylesheets/master.css */
+/* @override 
+	http://localhost:3000/stylesheets/master.css
+	http://localhost:3000/stylesheets/master.css?1206287098
+*/
 
 * { margin: 0; padding: 0; }
 
@@ -128,22 +131,80 @@ p, ul, ol, blockquote, h1, h2, h3, h4, h5, h6 {
 	margin-bottom: 0.5em;
 }
 
+h2 {
+	margin-top: 0.5em;
+	margin-bottom: 1em;
+}
+
 ul, ol {
 	list-style-position: inside;
 	margin-left: 1em;
 }
 
 div.item {
-	border: 0.1em solid #ccc;
-	background: #fff;
+	background: #fcefdd;
 	margin-bottom: 1em;
 	padding: 0.5em;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-moz-border-radius-bottomright: 5px;
 }
 
 div.item h4 {
 	background: #fdc476;
-	padding: 0.5em;
-	margin: -0.6em -0.6em 0.5em -0.6em;
+	padding: 0.5em 0.75em;
+	margin: -0.5em -0.5em 0.5em -0.5em;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-moz-border-radius-bottomright: 5px;
+}
+
+div.item h4 a {
+	text-decoration: none;
+	color: #843300;
+}
+
+div.item h4 a:hover {
+	background: none;
+	color: #000;
+}
+
+p#notice {
+	padding: 1em;
+	padding-left: 3.5em;
+	margin-bottom: 1em;
+	background: #e3ecc9 url(../images/sweetie/24-em-check.png) 1em center no-repeat;
+	-webkit-border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-moz-border-radius-topright: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-moz-border-radius-bottomright: 5px;
+}
+
+a.new {
+	float: right;
+	margin-top: -2.75em;
+	background: url(../images/sweetie/12-em-plus.png) center left no-repeat;
+	padding-left: 1em;
+	text-decoration: none;
+	color: #667849;
+}
+
+a.new:hover {
+	color: #000;
 }
 
 

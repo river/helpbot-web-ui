@@ -12,13 +12,14 @@ class TriggersController < ApplicationController
   #  end
   #end
    
-  #def show
-  # 
-  #  respond_to do |format|
-  #    format.html
-  #    format.xml  { render :xml => @trigger }
-  #  end
-  #end
+  def show
+    @trigger = Trigger.find(params[:id])
+    
+    respond_to do |format|
+      format.html
+      format.xml  { render :xml => @trigger }
+    end
+  end
    
   def new
     @trigger = Trigger.new

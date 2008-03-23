@@ -5,6 +5,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.edit_trigger "channels/:channel_id/triggers/edit/:id", :controller => "triggers", :action => "edit"
   map.destroy_trigger "channels/:channel_id/triggers/destroy/:id", :controller => "triggers", :action => "destroy"
+  map.trigger "trigger/:id", :controller => "triggers", :action => "show"
   map.connect	'channels/:channel_id/triggers/:action/:id',
   				    :controller => "triggers",
   				    :channel_id	=> /\d+/

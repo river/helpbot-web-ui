@@ -2,31 +2,38 @@
 
 = render :partial => "channel", :item => @channel
 
-%h3= @channel.name.to_s + "&#8217;s Triggers"
+.left-half
+  %h3= @channel.name.to_s + "&#8217;s Triggers"
 
-- unless @channel.triggers == []
-  .dim
-    - @channel.triggers.each do |trigger|
-      .item
-        %h4=h trigger.question
-        - if owns_trigger(trigger)
-          %p.edit
-            = link_to "Edit", edit_trigger_path(trigger)
-            %span /
-            = link_to "Delete", destroy_trigger_path(trigger), :confirm => "Are you sure you want to delete this trigger?"
-        %p=h trigger.answer
-- else
-  %p.notice.error
-    None.
-    = @channel.name
-    does&#8217;t have any triggers. :(
+  - unless @channel.triggers == []
+    .dim= render :partial => "triggers/trigger", :collection => @channel.triggers
+        
+  - else
+    %p.notice.error
+      None.
+      = @channel.name
+      does&#8217;t have any triggers. :(
 
-- if owns_channel(@channel)
-  %h3
-    Add a trigger to
-    =h @channel.name
-  - form_tag :controller => "triggers", :action => "create", :channel_id => @channel.id do
-    = render :partial => "triggers/form"
-    = submit_tag "Add Trigger"
+  - if owns_channel(@channel)
+    %h3 Add a Trigger
+    - form_tag :controller => "triggers", :action => "create", :channel_id => @channel.id do
+      = render :partial => "triggers/form"
+      = submit_tag "Add Trigger"
 
-/ TODO: This page should also show the channel's admins and offer to add new ones if permissions allow.
+.right-half
+  %h3= @channel.name.to_s + "&#8217;s Admins"
+
+  - unless @channel.admins == []
+    .dim= render :partial => "admins/admin", :collection => @channel.admins
+
+  - else
+    %p.notice.error
+      Uh-oh,
+      = @channel.name
+      doesn&#8217;t have any admins. This is a bad thing. There should always be at least one global admin.
+  
+  %h3= "Manage " + @channel.name + "&#8217;s Admins"
+
+.clear
+  
+  / TODO: multiselect box here w/ admins if user is global or owns this channel

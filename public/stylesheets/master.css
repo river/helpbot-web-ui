@@ -23,7 +23,7 @@ div#container {
 
 div#statusbar {
 	background: #777;
-	padding: 0.5em 1em 0.7em 1em;
+	padding: 1em 2em 1em 2em;
 	color: #ddd;
 	-webkit-border-bottom-left-radius: 5px;
 	-webkit-border-bottom-right-radius: 5px;
@@ -55,7 +55,7 @@ div#statusbar a:hover {
 }
 
 h1#header {
-	margin: 1.5em 0.5em;
+	margin: 1.5em 1em;
 }
 
 h1#header a {
@@ -85,7 +85,7 @@ ul#navigation li a {
 	color: #fff;
 	text-decoration: none;
 	background: #777;
-	padding: 0.5em 1em 1em 1em;
+	padding: 0.5em 2em 1em 2em;
 	line-height: 2em;
 	border-top: 0.15em solid #999;
 	-webkit-border-top-left-radius: 5px;
@@ -107,7 +107,7 @@ ul#navigation li a.current {
 
 div#body {
 	background: #fff;
-	padding: 1em;
+	padding: 1em 2em;
 	position: relative;
 	z-index: 10;
 	-webkit-border-top-left-radius: 5px;
@@ -140,7 +140,7 @@ a:hover {
 	color: #fff;
 }
 
-p, ul, ol, blockquote, h1, h2, h3, h4, h5, h6 {
+p, ul, ol, blockquote, h1, h2, h3, h4, h5, h6, form {
 	margin-bottom: 0.5em;
 }
 
@@ -159,6 +159,16 @@ ul, ol {
 	margin-left: 2em;
 	list-style: ;
 	list-style-type: circle;
+}
+
+div.left-half {
+	width: 47%;
+	float: left;
+}
+
+div.right-half {
+	width: 47%;
+	float: right;
 }
 
 div.item {

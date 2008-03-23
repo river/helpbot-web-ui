@@ -9,4 +9,6 @@ class Channel < ActiveRecord::Base
       return admin.login
     end
   end
+  
+  # TODO: channel.admins should also include global admins
 end

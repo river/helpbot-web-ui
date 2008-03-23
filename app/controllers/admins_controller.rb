@@ -75,6 +75,6 @@ class AdminsController < ApplicationController
     end
     
     def has_permission?
-      logged_in? and (is_global? or @admin.id == @current_admin.id)
+      logged_in? and (@current_admin.global or @admin.id == @current_admin.id)
     end
 end

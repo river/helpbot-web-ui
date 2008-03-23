@@ -1,0 +1,29 @@
+= error_messages_for :admin
+
+%p
+  %label Login:<br />
+  = text_field :admin, :login
+
+%p
+  %label Real Name:<br />
+  = text_field :admin, :name
+
+%p
+  %label Email:<br />
+  = text_field :admin, :email
+
+%p
+  %label Password:<br />
+  = password_field :admin, :password
+
+%p
+  %label Confirm Password:<br />
+  = password_field :admin, :password_confirmation
+
+- if params[:action] == "edit"
+  %p
+    %label Global?
+    - if admin.is_global?
+      = check_box :global
+    - else
+      = h admin.global

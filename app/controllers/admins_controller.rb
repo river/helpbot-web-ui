@@ -32,7 +32,7 @@ class AdminsController < ApplicationController
           @admin.update_attributes(:global => true) if Admin.find(:all).size == 1
         end
         
-        flash[:notice] = 'Admin was successfully created.'
+        flash[:notice] = "Admin was successfully created. Welcome, " + @admin.longest_name + "!"
         session[:admin] = @admin.id
         format.html { redirect_to(@admin) }
         format.xml  { render :xml => @admin, :status => :created, :location => @admin }
@@ -62,8 +62,19 @@ class AdminsController < ApplicationController
   end
 
   def destroy
-    @admin.destroy unless @admin.global
-
+    @admin.destroy # unless @admin.global
+    message = @admin.longest_name + " was sucessfully deleted."
+    
+    if Admin.find(:all).size == 1
+      last_admin = Admin.find(:first)
+      unless last_admin.global
+        last_admin.update_attributes(:global => true)
+        message << " " + last_admin.longest_name + " was also made global because he/she is now the last admin remaining."
+      end
+    end
+    
+    flash[:notice] = message
+    
     respond_to do |format|
       format.html { redirect_to(admins_url) }
       format.xml  { head :ok }

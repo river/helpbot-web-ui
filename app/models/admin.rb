@@ -45,7 +45,6 @@ class Admin < ActiveRecord::Base
     self.name == "" ? self.login.humanize : self.name
   end
   
-  
   protected
     # encrypt a users password
     def encrypt_password

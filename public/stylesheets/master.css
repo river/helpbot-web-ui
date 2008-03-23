@@ -223,6 +223,7 @@ div.item p.edit a {
 
 div.item p.edit a:hover {
 	color: #000;
+	background: none;
 }
 
 div.dim div.item {
@@ -269,6 +270,15 @@ a.new {
 a.new:hover {
 	color: #000;
 }
+
+/*================================================
+	Form elements
+================================================*/
+
+form span.optional {
+	color: #777;
+}
+
 
 
 

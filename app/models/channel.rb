@@ -4,11 +4,9 @@ class Channel < ActiveRecord::Base
   
   validates_presence_of :name
   
-  def admin_logins
-    self.admins.each do |admin|
-      return admin.login
-    end
+  def all_admins
+    globals = Admin.find_by_global(true)
+    globals = [globals] unless globals.is_a? Array
+    (self.admins.find(:all) + globals).sort!
   end
-  
-  # TODO: channel.admins should also include global admins
 end

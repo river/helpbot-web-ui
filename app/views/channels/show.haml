@@ -23,8 +23,8 @@
 .right-half
   %h3= @channel.name.to_s + "&#8217;s Admins"
 
-  - unless @channel.admins == []
-    .dim= render :partial => "admins/admin", :collection => @channel.admins
+  - unless @channel.all_admins == []
+    .dim= render :partial => "admins/admin", :collection => @channel.all_admins
 
   - else
     %p.notice.error

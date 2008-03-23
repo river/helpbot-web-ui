@@ -9,16 +9,21 @@
   = text_field :admin, :name
 
 %p
+  %label Email:<br />
+  = text_field :admin, :email
+
+%p
   %label Password:<br />
-  = text_field :admin, :password
+  = password_field :admin, :password
 
 %p
   %label Confirm Password:<br />
-  = text_field :admin, :password_confirmation
+  = password_field :admin, :password_confirmation
 
-%p
-  %label Global?
-  - if is_global?
-    = check_box :global
-  - else
-    = h @admin.global
+- if params[:action] == "edit"
+  %p
+    %label Global?
+    - if admin.is_global?
+      = check_box :global
+    - else
+      = h admin.global

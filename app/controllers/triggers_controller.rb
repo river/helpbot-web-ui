@@ -30,7 +30,8 @@ class TriggersController < ApplicationController
   end
   
   def create
-    @trigger = Trigger.new(params[:trigger])
+    @trigger = Channel.find(params[:channel_id]).triggers.new(params[:trigger])
+    @trigger.admin_id = @current_admin.id
     
     respond_to do |format|
       if @trigger.save

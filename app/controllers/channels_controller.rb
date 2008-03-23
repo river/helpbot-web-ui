@@ -20,6 +20,7 @@ class ChannelsController < ApplicationController
   end
 
   def new
+    redirect_to "/login" unless logged_in?
     @channel = Channel.new
 
     respond_to do |format|
@@ -29,6 +30,7 @@ class ChannelsController < ApplicationController
   end
 
   def create
+    redirect_to "/login" unless logged_in?
     @channel = Channel.new(params[:channel])
 
     respond_to do |format|

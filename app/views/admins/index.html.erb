@@ -13,7 +13,7 @@
     <td><%=h admin.name %></td>
     <td><%=h admin.global %></td>
     <td><%= link_to 'Show', admin %></td>
-    <td><%= link_to 'Edit', edit_admin_path(admin) if @current_admin != nil && @current_admin.id != @admin.id && !@current_admin.global || !logged_in? %></td>
+    <td><%= link_to 'Edit', edit_admin_path(admin) if @current_admin.id == admin.id || @current_admin.global %></td>
   </tr>
 <% end %>
 </table>

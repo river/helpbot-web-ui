@@ -1,5 +1,5 @@
 %h2 Editing Admin
 
-- form_tag :action => "update"
+- form_tag :action => "update", :id => @admin.id
   = render :partial => "form"
   %p= submit_tag_or_cancel "Update"

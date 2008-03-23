@@ -1,4 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :triggers
   map.resources :channels
   map.resources :admins
   

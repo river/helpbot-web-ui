@@ -35,7 +35,15 @@ class AdminsController < ApplicationController
     @admin.global = false
     
     respond_to do |format|
+      # TODO: in a situation where there is one local admin and one global admin and the global admin deletes him/herself, make the local admin global.
+      
       if @admin.save
+        if @admin.id == 1
+          @admin.update_attributes(:global => true)
+        else
+          @admin.update_attributes(:global => true) if Admin.find(:all).size == 1
+        end
+        
         flash[:notice] = 'Admin was successfully created.'
         session[:admin] = @admin.id
         format.html { redirect_to(@admin) }

@@ -47,9 +47,10 @@ class AdminsController < ApplicationController
   end
   
   def update
+    @admin.global = params[:admin][:global] if @current_admin.global
     
     respond_to do |format|
-      if @admin.update_attributes(params[:id])
+      if @admin.update_attributes(params[:admin])
         flash[:notice] = 'Admin was successfully updated.'
         format.html { redirect_to(@admin) }
         format.xml  { head :ok }

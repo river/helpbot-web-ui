@@ -31,7 +31,8 @@ class ChannelsController < ApplicationController
 
   def create
     @channel = Channel.new(params[:channel])
-
+    @channel.admins = @current_admin
+    
     respond_to do |format|
       if @channel.save and logged_in?
         flash[:notice] = 'Channel was successfully created.'

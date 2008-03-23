@@ -13,7 +13,9 @@
     <td><%=h admin.name %></td>
     <td><%=h admin.global %></td>
     <td><%= link_to 'Show', admin %></td>
-    <td><%= link_to 'Edit', edit_admin_path(admin) if @current_admin.id == admin.id || @current_admin.global %></td>
+    <% if logged_in? %>
+      <td><%= link_to 'Edit', edit_admin_path(admin) if @current_admin.id == admin.id || @current_admin.global %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>

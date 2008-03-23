@@ -1,5 +1,5 @@
 .item.admin
-  %h4=h admin.longest_name
+  %h4= link_to h(admin.longest_name), admin
   
   %ul
     - if admin.global
@@ -7,10 +7,8 @@
     - else
       %li= admin.longest_name + " is a <strong>local admin</strong>, and is constantly overrided by global admins. :("
     
-    %li
-      = link_to "Show", admin
-      - if logged_in? and (is_global? or admin.id == @current_admin.id)
-        %span or
+    - if logged_in? and (is_global? or admin.id == @current_admin.id)
+      %li
         = link_to "Edit", edit_admin_path(admin)
-        %span /
+        %span or
         = link_to "Delete", destroy_admin_path(admin), :confirm => "Are you sure you want to delete " + admin.longest_name + "?"

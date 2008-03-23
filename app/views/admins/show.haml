@@ -1,0 +1,11 @@
+= render :partial => "admin", :object => @admin
+
+%h3= @admin.longest_name + "&#8217;s Channels"
+
+- if @admin.global
+  = render :partial => "channels/channel", :collection => Channel.find(:all)
+- else
+  - if @admin.channels == []
+    %p= "None. " + @admin.longest_name + " does not have power over any channels. :("
+  - else
+    = render :partial => "channels/channel", :collection => @admin.channels

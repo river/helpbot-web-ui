@@ -7,8 +7,7 @@ class SessionsController < ApplicationController
     @current_admin = Admin.authenticate(params[:login], params[:password]) 
     if @current_admin
       session[:admin] = @current_admin.id
-      # TODO: Add a "longest_name" helper that will return the name if set, or the login
-      flash[:notice] = "Welcome, " + @current_admin.login + "!"
+      flash[:notice] = "Welcome, " + @current_admin.longest_name + "!"
       redirect_to root_url
     else 
       flash[:notice] = "No user was found with this login/password" 

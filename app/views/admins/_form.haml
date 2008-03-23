@@ -1,5 +1,7 @@
 = error_messages_for :admin
 
+/ TODO: add multiselect box for channels
+
 %p
   %label Login:<br />
   = text_field :admin, :login
@@ -23,7 +25,7 @@
 - if params[:action] == "edit"
   %p
     %label Global?
-    - if admin.is_global?
+    - if is_global?
       = check_box :global
     - else
       = h admin.global

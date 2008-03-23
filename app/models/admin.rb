@@ -39,6 +39,12 @@ class Admin < ActiveRecord::Base
     end
   end
   
+  # returns longest name possible
+  def longest_name
+    self.name ? self.name : self.login
+  end
+  
+  
   protected
     # encrypt a users password
     def encrypt_password

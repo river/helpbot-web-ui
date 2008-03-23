@@ -8,6 +8,14 @@ module ApplicationHelper
     @current_admin.global
   end
   
+  def owns_channel(chan)
+    @current_admin.channel_ids.member?(chan.id) || @current_admin.global
+  end
+
+  def owns_trigger(trig)
+    @current_admin.trigger_ids.member?(trig.id) || @current_admin.global
+  end
+  
   def submit_tag_or_cancel(name, options={})
     options = "javascript:history.go(-1)" if options.empty?
     "#{submit_tag(name)} or #{link_to 'Cancel', options, :class => 'cancel'}"

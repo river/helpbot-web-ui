@@ -23,14 +23,14 @@ class TriggersController < ApplicationController
 
   # GET /triggers/new
   # GET /triggers/new.xml
-  def new
-    @trigger = Trigger.new
+  #def new
+  #  @trigger = Trigger.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @trigger }
-    end
-  end
+  #  respond_to do |format|
+  #    format.html # new.html.erb
+  #    format.xml  { render :xml => @trigger }
+  #  end
+  #end
 
   # GET /triggers/1/edit
   def edit
@@ -39,20 +39,20 @@ class TriggersController < ApplicationController
 
   # POST /triggers
   # POST /triggers.xml
-  def create
-    @trigger = Trigger.new(params[:trigger])
+  #def create
+  #  @trigger = Trigger.new(params[:trigger])
 
-    respond_to do |format|
-      if @trigger.save
-        flash[:notice] = 'Trigger was successfully created.'
-        format.html { redirect_to(@trigger) }
-        format.xml  { render :xml => @trigger, :status => :created, :location => @trigger }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @trigger.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
+  #  respond_to do |format|
+  #    if @trigger.save
+  #      flash[:notice] = 'Trigger was successfully created.'
+  #      format.html { redirect_to(@trigger) }
+  #      format.xml  { render :xml => @trigger, :status => :created, :location => @trigger }
+  #    else
+  #      format.html { render :action => "new" }
+  #      format.xml  { render :xml => @trigger.errors, :status => :unprocessable_entity }
+  #    end
+  #  end
+  #end
 
   # PUT /triggers/1
   # PUT /triggers/1.xml

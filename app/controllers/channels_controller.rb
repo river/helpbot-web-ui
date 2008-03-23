@@ -25,6 +25,7 @@ class ChannelsController < ApplicationController
     @channel = Channel.find(params[:channel_id])
     @trigger = @channel.triggers.new(params[:trigger])
     @trigger.admin_id = @current_admin.id
+    render :action => "show", :id => @channel if !owns_channel(@current_admin)
     
     respond_to do |format|
       if @trigger.save

@@ -30,11 +30,10 @@ class ChannelsController < ApplicationController
   end
 
   def create
-    redirect_to "/login" unless logged_in?
     @channel = Channel.new(params[:channel])
 
     respond_to do |format|
-      if @channel.save
+      if @channel.save and logged_in?
         flash[:notice] = 'Channel was successfully created.'
         format.html { redirect_to(@channel) }
         format.xml  { render :xml => @channel, :status => :created, :location => @channel }

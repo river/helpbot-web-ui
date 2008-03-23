@@ -22,9 +22,10 @@ div#container {
 }
 
 div#statusbar {
-	background: #777;
-	padding: 1em 2em 1em 2em;
+	background: #666;
+	padding: 0.6em 2em 0.75em 2em;
 	color: #ddd;
+	border-bottom: 0.15em solid #777;
 	-webkit-border-bottom-left-radius: 5px;
 	-webkit-border-bottom-right-radius: 5px;
 	-moz-border-radius-bottomleft: 5px;

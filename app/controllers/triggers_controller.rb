@@ -35,7 +35,7 @@ class TriggersController < ApplicationController
     respond_to do |format|
       if @trigger.save
         flash[:notice] = 'Trigger was successfully created.'
-        format.html { redirect_to(@trigger) }
+        format.html { redirect_to(@channel) }
         format.xml  { render :xml => @trigger, :status => :created, :location => @trigger }
       else
         format.html { render :action => "new" }
@@ -51,7 +51,7 @@ class TriggersController < ApplicationController
     respond_to do |format|
       if @trigger.update_attributes(params[:trigger])
         flash[:notice] = 'Trigger was successfully updated.'
-        format.html { redirect_to(@trigger) }
+        format.html { redirect_to(@channel) }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

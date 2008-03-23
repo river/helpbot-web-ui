@@ -3,6 +3,10 @@
 	http://localhost:3000/stylesheets/master.css?1206287098
 */
 
+/*================================================
+	Layout elements (except for #body stuff)
+================================================*/
+
 * { margin: 0; padding: 0; }
 
 .clear { clear: both; }
@@ -37,6 +41,17 @@ div#statusbar p.left {
 
 div#statusbar p.right {
 	float: right;
+}
+
+div#statusbar a {
+	border: none;
+	padding: 0;
+	color: #fff;
+}
+
+div#statusbar a:hover {
+	color: #ddd;
+	background: transparent;
 }
 
 h1#header {
@@ -112,7 +127,7 @@ div#footer {
 }
 
 /*================================================
-	Display elements
+	General display elements
 ================================================*/
 
 a {
@@ -125,17 +140,6 @@ a:hover {
 	color: #fff;
 }
 
-div#statusbar a {
-	border: none;
-	padding: 0;
-	color: #fff;
-}
-
-div#statusbar a:hover {
-	color: #ddd;
-	background: transparent;
-}
-
 p, ul, ol, blockquote, h1, h2, h3, h4, h5, h6 {
 	margin-bottom: 0.5em;
 }
@@ -145,9 +149,16 @@ h2 {
 	margin-bottom: 1em;
 }
 
+h3 {
+	margin-top: 1.5em;
+	margin-bottom: 1em;
+}
+
 ul, ol {
-	list-style-position: inside;
-	margin-left: 1em;
+	list-style-position: outside;
+	margin-left: 2em;
+	list-style: ;
+	list-style-type: circle;
 }
 
 div.item {
@@ -188,7 +199,34 @@ div.item h4 a:hover {
 	color: #000;
 }
 
-p#notice {
+div.item p.edit {
+	float: right;
+	margin-top: -2.25em;
+	color: #f95f00;
+}
+
+div.item p.edit a {
+	text-decoration: none;
+	color: #c44b00;
+}
+
+div.item p.edit a:hover {
+	color: #000;
+}
+
+div.dim div.item {
+	background: #fcf4ea;
+}
+
+div.dim div.item h4 {
+	background: #fce5c4;
+}
+
+/*================================================
+	Page elements
+================================================*/
+
+p.notice {
 	padding: 1em;
 	padding-left: 3.5em;
 	margin-bottom: 1em;
@@ -201,6 +239,11 @@ p#notice {
 	-moz-border-radius-topright: 5px;
 	-moz-border-radius-bottomleft: 5px;
 	-moz-border-radius-bottomright: 5px;
+}
+
+p.notice.error {
+	background-color: #ffe6e6;
+	background-image: url(../images/sweetie/24-em-cross.png);
 }
 
 a.new {

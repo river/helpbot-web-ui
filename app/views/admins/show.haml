@@ -1,13 +1,14 @@
-%h2 Admin Page
+%h2 Admin
 
 = render :partial => "admin", :object => @admin
 
 %h3= @admin.longest_name + "&#8217;s Channels"
 
 - if @admin.global
-  = render :partial => "channels/channel", :collection => Channel.find(:all)
+  .dim= render :partial => "channels/channel", :collection => Channel.find(:all)
 - else
   - if @admin.channels == []
-    %p= "None. " + @admin.longest_name + " does not have power over any channels. :("
+    / TODO: add a p.notice.error style (akin to p.notice)
+    %p.notice.error= "None. " + @admin.longest_name + " does not have power over any channels. :("
   - else
-    = render :partial => "channels/channel", :collection => @admin.channels
+    .dim= render :partial => "channels/channel", :collection => @admin.channels

@@ -1,7 +1,12 @@
-/ TODO: add an "edit" and "destroy" link
-
 .item.channel
   %h4= link_to channel.name, :action => "show", :id => channel.id
+  
+  - if owns_channel(channel)
+    %p.edit
+      = link_to "Edit", edit_channel_path(channel)
+      %span /
+      = link_to "Delete", destroy_channel_path(channel), :confirm => "Are you sure you want to delete " + channel.name + "?"
+  
   %ul
     - if channel.channel_wins
       %li

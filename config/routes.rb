@@ -3,11 +3,13 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :admins
   map.resources :channels
   
-  # TODO: get rid of map.resources :triggers and add some more named routes for triggers
+  map.edit_trigger "channels/:channel_id/triggers/edit/:id", :controller => "triggers", :action => "edit"
+  map.destroy_trigger "channels/:channel_id/triggers/destroy/:id", :controller => "triggers", :action => "destroy"
   map.connect	'channels/:channel_id/triggers/:action/:id',
-  				:controller => "triggers",
-  				:action		=> "show",
-  				:channel_id	=> /\d+/
+  				    :controller => "triggers",
+  				    :channel_id	=> /\d+/
+  
+  map.destroy_channel "channels/destroy/:id", :controller => "channels", :action => "destroy"
   
   map.destroy_admin "admins/destroy/:id", :controller => "admins", :action => "destroy"
   map.login "login", :controller => "sessions", :action => "new"

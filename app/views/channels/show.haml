@@ -1,14 +1,25 @@
+%h2 Channel
+
 = render :partial => "channel", :item => @channel
 
 %h3= @channel.name.to_s + "&#8217;s Triggers"
 
 - unless @channel.triggers == []
-  %dl
+  .dim
     - @channel.triggers.each do |trigger|
-      %dt=h trigger.question
-      %dd=h trigger.answer
+      .item
+        %h4=h trigger.question
+        - if owns_trigger(trigger)
+          %p.edit
+            = link_to "Edit", edit_trigger_path(trigger)
+            %span /
+            = link_to "Delete", destroy_trigger_path(trigger), :confirm => "Are you sure you want to delete this trigger?"
+        %p=h trigger.answer
 - else
-  %p None. :(
+  %p.notice.error
+    None.
+    = @channel.name
+    does&#8217;t have any triggers. :(
 
 - if owns_channel(@channel)
   %h3

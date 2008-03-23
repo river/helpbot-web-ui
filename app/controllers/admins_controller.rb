@@ -1,6 +1,6 @@
 class AdminsController < ApplicationController
   before_filter :find_admin, :except => [:index, :new, :create]
-  before_filter :has_permission?, :except => [:index, :show, :create]
+  before_filter :has_permission?, :except => [:index, :show, :new, :create]
   
   def index
     @admins = Admin.find(:all, :order => "name")

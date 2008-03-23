@@ -1,6 +1,6 @@
 class ChannelsController < ApplicationController
   before_filter :find_channel, :except => [:index, :new, :create]
-  before_filter :has_permission?, :except => [:index, :show, :create]
+  before_filter :has_permission?, :except => [:index, :show, :new, :create]
   
   def index
     @channels = Channel.find(:all)

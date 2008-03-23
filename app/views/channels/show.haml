@@ -5,7 +5,7 @@
 - unless @channel.triggers == []
   %dl
     - @channel.triggers.each do |trigger|
-      %dt=h trigger.question + " (" + trigger.admin.name unless trigger.admin == nil else puts "Unknown" + ")"
+      %dt=h trigger.question
       %dd=h trigger.answer
 - else
   %p None. :(

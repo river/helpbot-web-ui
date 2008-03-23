@@ -1,5 +1,15 @@
 = render :partial => "channel", :item => @channel
 
+%h3= @channel.name.to_s + "&#8217s Triggers"
+
+- if @channel.triggers
+  %dl
+    - @channel.triggers.each do |trigger|
+      %dt=h trigger.question
+      %dd=h trigger.answer
+- else
+  %p None. :(
+
 %h3
   Add a trigger to
   =h @channel.name

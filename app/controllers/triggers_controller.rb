@@ -28,9 +28,6 @@ class TriggersController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def create
     @trigger = Trigger.new(params[:trigger])
     
@@ -44,6 +41,9 @@ class TriggersController < ApplicationController
         format.xml  { render :xml => @trigger.errors, :status => :unprocessable_entity }
       end
     end
+  end
+
+  def edit
   end
 
   def update
@@ -64,7 +64,7 @@ class TriggersController < ApplicationController
     @trigger.destroy
 
     respond_to do |format|
-      format.html { redirect_to(triggers_url) }
+      format.html { redirect_to(@channel) }
       format.xml  { head :ok }
     end
   end

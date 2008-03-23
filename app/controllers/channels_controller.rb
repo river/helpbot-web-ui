@@ -1,62 +1,33 @@
 class ChannelsController < ApplicationController
-  # GET /channels
-  # GET /channels.xml
+  before_filter :find_channel, :except => [:index, :new, :create]
+  before_filter :has_permission?, :except => [:index, :show]
+  
   def index
     @channels = Channel.find(:all)
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html 
       format.xml  { render :xml => @channels }
     end
   end
 
-  # GET /channels/1
-  # GET /channels/1.xml
   def show
-    @channel = Channel.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html 
       format.xml  { render :xml => @channel }
     end
   end
-  
-  def create_trigger
-    @channel = Channel.find(params[:channel_id])
-    @trigger = @channel.triggers.new(params[:trigger])
-    @trigger.admin_id = @current_admin.id
-    render :action => "show", :id => @channel if !owns_channel(@current_admin)
-    
-    respond_to do |format|
-      if @trigger.save
-        flash[:notice] = "Trigger was successfully added to " + @channel.name + "."
-        format.html { redirect_to(@channel) }
-        format.xml  { render :xml => @trigger, :status => :created, :location => @channel }
-      else
-        format.html { render :action => "show", :id => @channel }
-        format.xml  { render :xml => @channel.errors, :status => :unprocessable_entity }
-      end
-    end
-  end
 
-  # GET /channels/new
-  # GET /channels/new.xml
   def new
     @channel = Channel.new
 
     respond_to do |format|
-      format.html # new.html.erb
+      format.html 
       format.xml  { render :xml => @channel }
     end
   end
 
-  # GET /channels/1/edit
-  def edit
-    @channel = Channel.find(params[:id])
-  end
-
-  # POST /channels
-  # POST /channels.xml
   def create
     @channel = Channel.new(params[:channel])
 
@@ -72,10 +43,10 @@ class ChannelsController < ApplicationController
     end
   end
 
-  # PUT /channels/1
-  # PUT /channels/1.xml
+  def edit
+  end
+
   def update
-    @channel = Channel.find(params[:id])
 
     respond_to do |format|
       if @channel.update_attributes(params[:channel])
@@ -89,10 +60,7 @@ class ChannelsController < ApplicationController
     end
   end
 
-  # DELETE /channels/1
-  # DELETE /channels/1.xml
   def destroy
-    @channel = Channel.find(params[:id])
     @channel.destroy
 
     respond_to do |format|
@@ -100,4 +68,13 @@ class ChannelsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  private
+    def find_channel
+      @channel = Channel.find_by_id(params[:id])
+    end
+    
+    def has_permission?
+      owns_channel(@channel)
+    end
 end

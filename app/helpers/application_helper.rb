@@ -9,13 +9,19 @@ module ApplicationHelper
   end
   
   def owns_channel(chan)
-    return if !chan.is_a?(Channel)
-    @current_admin.channel_ids.member?(chan.id) || @current_admin.global
+    if chan.is_a?(Channel)
+      @current_admin.channel_ids.member?(chan.id) || @current_admin.global
+    else
+      return false
+    end
   end
 
   def owns_trigger(trig)
-    return if !trig.is_a?(Trigger)
-    @current_admin.trigger_ids.member?(trig.id) || @current_admin.global
+    if trig.is_a?(Trigger)
+      @current_admin.trigger_ids.member?(trig.id) || @current_admin.global
+    else
+      return false
+    end
   end
   
   def submit_tag_or_cancel(name, options={})

@@ -2,7 +2,10 @@ module AdminsHelper
 
   def admin_of
     @admin.channels.each do |chan|
-      puts chan.name+" "
+      if chan == nil
+        puts "<i>Nothing</i>"
+      else
+        puts chan.name+" "
     end
   end
 end

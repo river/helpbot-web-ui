@@ -1,0 +1,20 @@
+%h2=h @channel.name
+
+%p= link_to "Edit", edit_channel_path(@channel)
+
+%ul
+  %li
+    - if @channel.channel_wins
+      =h @channel.name
+      <strong>takes priority</strong> over global triggers.
+    - else
+      =h @channel.name
+      <strong>doesn&#8217;t take priority</strong> over global triggers.
+  %li
+    - if @channel.public
+      Helpbot is currently <strong>actively responding</strong> to this channel.
+    - else
+      Helpbot is currently <strong>disabled</strong> on this channel.
+  %li
+    %strong Admins
+    =h admin_logins

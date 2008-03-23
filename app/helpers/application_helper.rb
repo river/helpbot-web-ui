@@ -12,4 +12,8 @@ module ApplicationHelper
     options = "javascript:history.go(-1)" if options.empty?
     "#{submit_tag(name)} or #{link_to 'Cancel', options, :class => 'cancel'}"
   end
+  
+  def logged_in? 
+    @current_admin.is_a?(Admin) 
+  end
 end

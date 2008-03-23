@@ -4,7 +4,6 @@ class Admin < ActiveRecord::Base
   attr_accessor :password
   has_many :triggers
   has_and_belongs_to_many :channels
-  helper_method :admin_of
   
   # validation 
   validates_length_of	  	:email,     :within => 3..100 

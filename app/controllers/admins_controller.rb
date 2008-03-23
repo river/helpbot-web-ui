@@ -75,7 +75,7 @@ class AdminsController < ApplicationController
     end
     
     def has_permission?
-      render "/login" unless logged_in?
+      redirect_to "/login" unless logged_in?
       logged_in? and (@current_admin.global or @admin.id == @current_admin.id)
     end
 end

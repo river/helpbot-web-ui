@@ -75,7 +75,7 @@ class ChannelsController < ApplicationController
     end
     
     def has_permission?
-      render "/login" unless logged_in?
+      redirect_to "/login" unless logged_in?
       owns_channel(@channel)
     end
 end

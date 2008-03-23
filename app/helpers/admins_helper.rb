@@ -1,5 +1,9 @@
 module AdminsHelper
 
+  def is_global?
+    @admin.global
+  end
+
   def admin_of
     @admin.channels.each do |chan|
       if chan.empty?

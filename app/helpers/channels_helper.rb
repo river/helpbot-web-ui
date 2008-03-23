@@ -2,7 +2,8 @@ module ChannelsHelper
   
   def admin_logins
     @channel.admins.each do |admin|
-      puts admin.login+" "
+      puts admin.name+" "
     end
   end
+  
 end

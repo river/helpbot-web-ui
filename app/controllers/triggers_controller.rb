@@ -35,6 +35,7 @@ class TriggersController < ApplicationController
   # GET /triggers/1/edit
   def edit
     @trigger = Trigger.find(params[:id])
+    redirect_to(@trigger) if !owns_trigger(@trigger)
   end
 
   # POST /triggers
@@ -58,6 +59,7 @@ class TriggersController < ApplicationController
   # PUT /triggers/1.xml
   def update
     @trigger = Trigger.find(params[:id])
+    redirect_to(@trigger) if !owns_trigger(@trigger)
 
     respond_to do |format|
       if @trigger.update_attributes(params[:trigger])
@@ -75,6 +77,7 @@ class TriggersController < ApplicationController
   # DELETE /triggers/1.xml
   def destroy
     @trigger = Trigger.find(params[:id])
+    redirect_to(@trigger) if !owns_trigger(@trigger)
     @trigger.destroy
 
     respond_to do |format|

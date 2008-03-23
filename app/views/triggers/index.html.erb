@@ -15,8 +15,8 @@
     <td><%=h trigger.question %></td>
     <td><%=h trigger.answer %></td>
     <td><%= link_to 'Show', trigger %></td>
-    <td><%= link_to 'Edit', edit_trigger_path(trigger) %></td>
-    <td><%= link_to 'Destroy', trigger, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Edit', edit_trigger_path(trigger) if owns_trigger(trigger) %></td>
+    <td><%= link_to 'Destroy', trigger, :confirm => 'Are you sure?', :method => :delete if owns_trigger(trigger) %></td>
   </tr>
 <% end %>
 </table>

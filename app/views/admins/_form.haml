@@ -25,8 +25,8 @@
 
 - if params[:action] == "edit"
   %p
-    %label Global?
-    - if is_global?
+    %label Global Admin?
+    - if logged_in? and @current_admin.global
       = check_box :global
     - else
       = h admin.global

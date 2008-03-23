@@ -6,6 +6,7 @@ module AdminsHelper
         puts "<i>Nothing</i>"
       else
         puts chan.name+" "
+      end
     end
   end
 end

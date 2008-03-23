@@ -14,7 +14,7 @@
   %h3
     Add a trigger to
     =h @channel.name
-  - form_tag {:controller => "triggers", :action => "create"} do
+  - form_tag :controller => "triggers", :action => "create" do
     = render :partial => "triggers/form"
     = submit_tag "Add Trigger"
 

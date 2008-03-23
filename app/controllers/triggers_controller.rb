@@ -1,5 +1,6 @@
 class TriggersController < ApplicationController
-  before_filter :find_trigger_channel, :except => [:index, :new, :create]
+  before_filter :find_trigger, :except => [:index, :new, :create]
+  before_filter :find_channel
   before_filter :has_permission?, :except => [:index, :show]
   
   #def index
@@ -69,8 +70,12 @@ class TriggersController < ApplicationController
   end
   
   private
-    def find_trigger_channel
+    def find_trigger
       @trigger = Trigger.find_by_id(params[:id])
+      @channel = Channel.find_by_id(params[:channel_id])
+    end
+    
+    def find_channel
       @channel = Channel.find_by_id(params[:channel_id])
     end
     

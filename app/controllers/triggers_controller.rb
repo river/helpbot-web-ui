@@ -77,7 +77,8 @@ class TriggersController < ApplicationController
   # DELETE /triggers/1.xml
   def destroy
     @trigger = Trigger.find(params[:id])
-    redirect_to(@trigger) if !owns_trigger(@trigger)
+    return if !owns_trigger(@trigger)
+    
     @trigger.destroy
 
     respond_to do |format|

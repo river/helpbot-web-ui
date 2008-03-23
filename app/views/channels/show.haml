@@ -5,7 +5,7 @@
 - if @channel.triggers
   %dl
     - @channel.triggers.each do |trigger|
-      %dt=h trigger.question
+      %dt=h trigger.question + " (" + trigger.admin.name + ")"
       %dd=h trigger.answer
 - else
   %p None. :(

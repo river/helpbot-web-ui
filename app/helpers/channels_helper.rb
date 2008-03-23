@@ -1,8 +1,8 @@
 module ChannelsHelper
   
   def admin_logins
-    self.admins.each do |admin|
-      return admin.login
+    @channel.admins.each do |admin|
+      puts admin.login+" "
     end
   end
 end

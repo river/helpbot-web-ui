@@ -3,6 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :admins
   map.resources :channels
   
+  # TODO: get rid of map.resources :triggers and add some more named routes for triggers
   map.trigger	'channels/:channel_id/triggers/:action/:id',
   				:controller => "triggers",
   				:action		=> "show",

@@ -1,3 +1,5 @@
+# TODO Hide edit link if not current admin or global admin
+
 <h1>Listing admins</h1>
 
 <table>
@@ -11,7 +13,7 @@
     <td><%=h admin.name %></td>
     <td><%=h admin.global %></td>
     <td><%= link_to 'Show', admin %></td>
-    <td><%= link_to 'Edit', edit_admin_path(admin) if am_myself? %></td>
+    <td><%= link_to 'Edit', edit_admin_path(admin) if @current_admin != nil && @current_admin.id != @admin.id && !@current_admin.global || !logged_in? %></td>
   </tr>
 <% end %>
 </table>

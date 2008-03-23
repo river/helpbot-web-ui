@@ -1,11 +1,11 @@
 <p>
   <b>Channel:</b>
-  <%=h @trigger.channel_id %>
+  <%=h @trigger.channel.name %>
 </p>
 
 <p>
   <b>Admin:</b>
-  <%=h @trigger.admin_id %>
+  <%=h @trigger.admin.name %>
 </p>
 
 <p>
@@ -19,5 +19,5 @@
 </p>
 
 
-<%= link_to 'Edit', edit_trigger_path(@trigger) %> |
+<%= link_to 'Edit', edit_trigger_path(@trigger) if @current_admin.triggers.member?(@trigger) || is_global? %> |
 <%= link_to 'Back', triggers_path %>

@@ -1,7 +1,11 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :triggers
-  map.resources :channels
   map.resources :admins
+  
+  map.trigger	'channels/:channel_id/triggers/:id',
+  				:controller => "triggers",
+  				:action		=> "show",
+  				:channel_id	=> /\d+/
   
   map.destroy_admin "admins/destroy/:id", :controller => "admins", :action => "destroy"
   map.login "login", :controller => "sessions", :action => "new"

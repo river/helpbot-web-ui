@@ -1,7 +1,5 @@
 = error_messages_for :channel
 
-/ TODO: Add multiselect box for admins
-
 %p
   %label Name:<br />
   = text_field :channel, :name
@@ -13,3 +11,9 @@
 %p
   %label Respond to the channel?
   = check_box :channel, :public
+
+%p
+  %label
+    Admins:
+    %span.optional (global admins are implied)<br />
+  = select_tag("admins[]", options_for_select(Admin.find_by_global(false).to_a.collect {|c| [c.longest_name, c.id] }, @channel.admin_ids), :multiple => true)

@@ -1,7 +1,5 @@
 = error_messages_for :admin
 
-/ TODO: add multiselect box for channels
-
 %p
   %label Login:<br />
   = text_field :admin, :login
@@ -30,3 +28,9 @@
       = check_box :admin, :global
     - else
       = h @admin.global
+
+- unless @admin.global
+  - if is_global?
+    %p
+      %label Channels<br />
+      = select_tag("channels[]", options_for_select(Channel.find(:all).collect {|c| [c.name, c.id] }, @admin.channel_ids), :multiple => true)

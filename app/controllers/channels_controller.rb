@@ -12,7 +12,8 @@ class ChannelsController < ApplicationController
   end
 
   def show
-
+    @channel = Channel.find(params[:id])
+    
     respond_to do |format|
       format.html 
       format.xml  { render :xml => @channel }
@@ -20,7 +21,7 @@ class ChannelsController < ApplicationController
   end
 
   def new
-    redirect_to "/login" unless logged_in?
+    redirect_to login_path unless logged_in?
     @channel = Channel.new
 
     respond_to do |format|
@@ -45,12 +46,17 @@ class ChannelsController < ApplicationController
   end
 
   def edit
+    @channel = Channel.find(params[:id])
   end
 
   def update
-
+    @channel = Channel.find(params[:id])
+    
+    @channel.attributes = params[:channel]
+    @channel.admin_ids = params[:admins]
+    
     respond_to do |format|
-      if @channel.update_attributes(params[:channel])
+      if @channel.save
         flash[:notice] = 'Channel was successfully updated.'
         format.html { redirect_to(@channel) }
         format.xml  { head :ok }
@@ -60,9 +66,25 @@ class ChannelsController < ApplicationController
       end
     end
   end
+  
+  def update_admins
+    @channel = Channel.find(params[:id])
+    @channel.admin_ids = params[:admins]
+    
+    respond_to do |format|
+      if @channel.save
+        flash[:notice] = 'Channel was successfully updated.'
+        format.html { redirect_to(@channel) }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "show" }
+        format.xml  { render :xml => @channel.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
 
   def destroy
-    @channel.destroy
+    Channel.find(params[:id]).destroy
 
     respond_to do |format|
       format.html { redirect_to(channels_url) }

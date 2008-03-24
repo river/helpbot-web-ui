@@ -33,13 +33,6 @@ class Admin < ActiveRecord::Base
     Digest::MD5.hexdigest(pass)
   end
   
-  # list all channels an admin admins
-  def admin_of
-    self.channels.each do |chan|
-      return chan.name
-    end
-  end
-  
   # returns longest name possible
   def longest_name
     self.name == "" ? self.login.humanize : self.name

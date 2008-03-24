@@ -23,7 +23,7 @@
 .right-half
   %h3= @channel.name.to_s + "&#8217;s Admins"
 
-  - unless @channel.all_admins == []
+  - unless @channel.all_admins.empty?
     .dim= render :partial => "admins/admin", :collection => @channel.all_admins
 
   - else
@@ -34,7 +34,9 @@
   
   - if owns_channel(@channel)
     %h3= "Manage " + @channel.name + "&#8217;s Admins"
+    
+    - form_tag :action => "update_admins", :id => @channel.id do
+      %p= select_tag("admins[]", options_for_select(Admin.find_by_global(false).to_a.collect {|c| [c.longest_name, c.id] }, @channel.admin_ids), :multiple => true)
+      = submit_tag "Update"
 
 .clear
-  
-  / TODO: multiselect box here w/ admins if user is global or owns this channel

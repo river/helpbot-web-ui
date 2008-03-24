@@ -2,8 +2,7 @@ class Trigger < ActiveRecord::Base
   belongs_to :channel
   belongs_to :admin
   
-  # TODO: validate presence of admin_id and channel_id as well (need to make multiselect box first)
-  validates_presence_of :question, :answer
+  validates_presence_of :question, :answer, :channel_id
   
   def admin_login
     Admin.find(self.admin_id).login

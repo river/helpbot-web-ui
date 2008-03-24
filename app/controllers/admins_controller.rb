@@ -44,13 +44,20 @@ class AdminsController < ApplicationController
   end
 
   def edit
+    @admin = Admin.find(params[:id])
   end
   
   def update
-    @admin.global = params[:admin][:global] if @current_admin.global
+    @admin = Admin.find(params[:id])
     
+    # If you aren't global, any admin you can edit should not be global, either
+    params[:admin][:global] = false unless @current_admin.global
+    
+    @admin.attributes = params[:admin]
+    @admin.channel_ids = params[:channels]
+
     respond_to do |format|
-      if @admin.update_attributes(params[:admin])
+      if @admin.save
         flash[:notice] = 'Admin was successfully updated.'
         format.html { redirect_to(@admin) }
         format.xml  { head :ok }

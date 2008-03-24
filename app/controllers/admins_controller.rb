@@ -10,15 +10,10 @@ class AdminsController < ApplicationController
       format.xml  { render :xml => @admins }
     end
   end
-
-  def show
-    
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @admin }
-    end
+  
+  def new
+    @admin = Admin.new
   end
-
 
   def create
     @admin = Admin.new(params[:admin])
@@ -69,18 +64,26 @@ class AdminsController < ApplicationController
   end
 
   def destroy
-    @admin.destroy # unless @admin.global
-    message = @admin.longest_name + " was sucessfully deleted."
+    if is_global? or @admin == @current_admin
+      unless @admin.global and Admin.find_by_global(true).to_a.size == 1
+        @admin.destroy
+        message = @admin.longest_name + " was sucessfully deleted."
     
-    if Admin.find(:all).size == 1
-      last_admin = Admin.find(:first)
-      unless last_admin.global
-        last_admin.update_attributes(:global => true)
-        message << " " + last_admin.longest_name + " was also made global because he/she is now the last admin remaining."
+        if Admin.find(:all).size == 1
+          last_admin = Admin.find(:first)
+          unless last_admin.global
+            last_admin.update_attributes(:global => true)
+            message << " " + last_admin.longest_name + " was also made global because he/she is now the last admin remaining."
+          end
+        end
+        
+        flash[:notice] = message
+      else
+        flash[:warning] = "You cannot delete yourself right now because you are the last global admin! Please make someone else global first, then try again."
       end
+    else
+      flash[:message] = "Nice try, but you don't have permission to delete " + @admin.longest_name + "."
     end
-    
-    flash[:notice] = message
     
     respond_to do |format|
       format.html { redirect_to(admins_url) }
@@ -94,7 +97,7 @@ class AdminsController < ApplicationController
     end
     
     def has_permission?
-      redirect_to "/login" unless logged_in?
-      logged_in? and (@current_admin.global or @admin.id == @current_admin.id)
+      redirect_to login_path unless logged_in?
+      @current_admin.global or @admin.id == @current_admin.id
     end
 end

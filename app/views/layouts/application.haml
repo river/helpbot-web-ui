@@ -38,6 +38,10 @@
       
       - if flash[:notice]
         %p.notice= flash[:notice]
+      - if flash[:message]
+        %p.notice.message= flash[:message]
+      - if flash[:warning]
+        %p.notice.error= flash[:warning]
       
       = yield
     

@@ -21,7 +21,7 @@
   %label Confirm Password:<br />
   = password_field :admin, :password_confirmation
 
-- if params[:action] == "edit"
+- unless params[:action] == "new"
   %p
     %label Global Admin?
     - if logged_in? and @current_admin.global
@@ -29,8 +29,8 @@
     - else
       = h @admin.global
 
-- unless @admin.global
-  - if is_global?
-    %p
-      %label Channels<br />
-      = select_tag("channels[]", options_for_select(Channel.find(:all).collect {|c| [c.name, c.id] }, @admin.channel_ids), :multiple => true)
+  - if is_global? # Make sure the admin doing this is global
+    - unless @admin.global # Don't show this if editing a global admin; their access to everything is implied
+      %p
+        %label Channels<br />
+        = select_tag("channels[]", options_for_select(Channel.find(:all).collect {|c| [c.name, c.id] }, @admin.channel_ids), :multiple => true)

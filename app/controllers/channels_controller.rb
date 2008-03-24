@@ -1,6 +1,7 @@
 class ChannelsController < ApplicationController
   before_filter :find_channel, :except => [:index, :new, :create]
   before_filter :has_permission?, :except => [:index, :show, :new, :create]
+  before_filter :id_given?, :only => [:show, :edit, :update, :update_admins, :destroy]
   
   def index
     @channels = Channel.find(:all)
@@ -101,7 +102,12 @@ class ChannelsController < ApplicationController
     end
     
     def has_permission?
-      redirect_to "/login" unless logged_in?
+      redirect_to login_path unless logged_in?
       owns_channel(@channel)
+    end
+    
+    # TODO: apply id_given? to other controllers
+    def id_given?
+      redirect_to channels_path unless params[:id]
     end
 end

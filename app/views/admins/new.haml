@@ -1,4 +1,8 @@
-%h2 Sign Up
+- if logged_in?
+  %h2 New Admin
+  %p.notice.caution After submitting this form, you will be logged out and then logged in as the new admin.
+- else
+  %h2 Sign Up
 
 - form_tag :action => "create" do
   = render :partial => "form"

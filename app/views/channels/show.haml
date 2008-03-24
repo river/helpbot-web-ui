@@ -1,5 +1,7 @@
 %h2 Channel
 
+= link_to_new "Channel", new_channel_path
+
 = render :partial => "channel", :item => @channel
 
 .left-half
@@ -19,6 +21,8 @@
     - form_tag :controller => "triggers", :action => "create", :channel_id => @channel.id do
       = render :partial => "triggers/form"
       = submit_tag "Add Trigger"
+  - else
+    %p.notice.caution You do not have sufficient privileges to add triggers to this channel.
 
 .right-half
   %h3= @channel.name.to_s + "&#8217;s Admins"
@@ -40,5 +44,7 @@
     - form_tag :action => "update_admins", :id => @channel.id do
       %p= select_tag("admins[]", options_for_select(Admin.find_by_global(false).to_a.collect {|c| [c.longest_name, c.id] }, @channel.admin_ids), :multiple => true)
       = submit_tag "Update"
+  - else
+    %p.notice.caution You do not have sufficient privileges to manage this channel&#8217;s admins.
 
 .clear

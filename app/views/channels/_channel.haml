@@ -1,5 +1,5 @@
 .item.channel
-  %h4= link_to channel.name + " <em>(" + channel.triggers.size.to_s + (channel.triggers.size == 1 ? "trigger" : " triggers") + ")</em>", :action => "show", :id => channel.id
+  %h4= link_to channel.name + " <em>(" + channel.triggers.size.to_s + (channel.triggers.size == 1 ? " trigger" : " triggers") + ")</em>", channel
   
   - if owns_channel(channel)
     %p.edit

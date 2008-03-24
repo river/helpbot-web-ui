@@ -142,7 +142,7 @@ a:hover {
 }
 
 p, ul, ol, blockquote, h1, h2, h3, h4, h5, h6, form {
-	margin-bottom: 0.5em;
+	margin-bottom: 1em;
 }
 
 h2 {
@@ -175,7 +175,7 @@ div.right-half {
 div.item {
 	background: #fcefdd;
 	margin-bottom: 1em;
-	padding: 0.5em 0.75em;
+	padding: 0.5em 0.75em 0.1em 0.75em;
 	-webkit-border-top-left-radius: 5px;
 	-webkit-border-top-right-radius: 5px;
 	-webkit-border-bottom-left-radius: 5px;
@@ -263,16 +263,29 @@ p.notice.error {
 	background-image: url(../images/sweetie/24-em-cross.png);
 }
 
-a.new {
-	float: right;
-	margin-top: -2.75em;
-	background: url(../images/sweetie/12-em-plus.png) center left no-repeat;
-	padding-left: 1em;
-	text-decoration: none;
-	color: #667849;
+p.notice.caution {
+	background-color: #e7ebee;
+	background-image: url(../images/sweetie/24-comment-important.png);
 }
 
-a.new:hover {
+p.notice.message {
+	background-color: #bbd3eb;
+	background-image: url(../images/sweetie/24-message-info.png);
+}
+
+p.new {
+	float: right;
+	margin-top: -2.75em;
+}
+
+p.new a {
+	text-decoration: none;
+	color: #667849;
+	background: url(../images/sweetie/12-em-plus.png) center left no-repeat;
+	padding-left: 1em;
+}
+
+p.new a:hover {
 	color: #000;
 }
 

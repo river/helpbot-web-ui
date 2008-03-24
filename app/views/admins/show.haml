@@ -1,5 +1,7 @@
 %h2 Admin
 
+= link_to_new "Admin", signup_path
+
 = render :partial => "admin", :object => @admin
 
 %h3= @admin.longest_name + "&#8217;s Channels"

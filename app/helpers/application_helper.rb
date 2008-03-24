@@ -4,6 +4,10 @@ module ApplicationHelper
     link_to name, url, :class => (params[:controller] == name.downcase ? "current" : "background")
   end
   
+  def link_to_new(name, url)
+    "<p class='new'><a href='#{url}'>New #{name.capitalize}</a></p>" if logged_in?
+  end
+  
   def is_global?
     @current_admin.global
   end

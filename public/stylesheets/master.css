@@ -210,6 +210,11 @@ div.item h4 a:hover {
 	color: #000;
 }
 
+div.item h4 a em {
+  font-style: normal;
+  font-weight: normal;
+}
+
 div.item p.edit {
 	float: right;
 	margin-top: -2.25em;

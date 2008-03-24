@@ -2,4 +2,15 @@
 
 = render :partial => "trigger", :object => @trigger
 
-/ TODO: Add more trigger information such as the channel it belongs to and who can modify it
+%h3 More Meta!
+
+%ul
+  %li
+    This trigger belongs to
+    = link_to Channel.find(@trigger.channel_id).name, channel_path(@trigger.channel_id)
+  %li
+    This trigger was created on
+    = @trigger.created_at.strftime "%A, %B %e"
+    - unless @trigger.created_at == @trigger.updated_at
+      and was last modified on
+      = @trigger.updated_at.strftime "%A, %B %e"

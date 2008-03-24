@@ -44,7 +44,7 @@ class TriggersController < ApplicationController
     @trigger.destroy
 
     respond_to do |format|
-      format.html { redirect_to(@channel) }
+      format.html { redirect_to :controller => "channels", :action => "show", :id => @trigger.channel_id }
       format.xml  { head :ok }
     end
   end

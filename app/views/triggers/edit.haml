@@ -1,5 +1,5 @@
 %h2 Editing Trigger
 
-- form_tag :action => "update", :id => @trigger do
+- form_tag :action => "update", :id => @trigger.id do
   = render :partial => "form"
   = submit_tag_or_cancel "Update"

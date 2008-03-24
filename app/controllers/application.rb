@@ -23,6 +23,10 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def is_global?
+    @current_admin.global
+  end
+  
   def initialize_user 
     @current_admin = Admin.find_by_id(session[:admin]) if session[:admin] 
   end

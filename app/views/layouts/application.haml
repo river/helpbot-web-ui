@@ -14,7 +14,7 @@
     #statusbar
       - if logged_in?
         %p.left
-          Logged in as
+          You&#8217;re logged in as
           = link_to @current_admin.longest_name, @current_admin
         %p.right
           = link_to "Logout?",	:controller => "sessions", :action => "destroy"

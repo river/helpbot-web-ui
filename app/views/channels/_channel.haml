@@ -21,3 +21,10 @@
         Helpbot is currently responding <strong>to the channel</strong>.
       - else
         Helpbot is currently responding <strong>in private messages</strong>.
+    
+    - if logged_in?
+      %li
+        - if owns_channel(channel)
+          You <strong>have authority</strong> (can modify and delete) over this channel.
+        - else
+          You <strong>do not have authority</strong> (cannot modify or delete) this channel.

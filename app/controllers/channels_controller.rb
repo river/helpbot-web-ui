@@ -32,6 +32,7 @@ class ChannelsController < ApplicationController
 
   def create
     @channel = Channel.new(params[:channel])
+    @channel.admins << @current_admin unless is_global?
     
     respond_to do |format|
       if @channel.save and logged_in?
@@ -84,8 +85,10 @@ class ChannelsController < ApplicationController
   end
 
   def destroy
-    Channel.find(params[:id]).destroy
-
+    @channel = Channel.find(params[:id])
+    @channel.destroy
+    flash[:notice] = @channel.name + " was successfully deleted."
+    
     respond_to do |format|
       format.html { redirect_to(channels_url) }
       format.xml  { head :ok }

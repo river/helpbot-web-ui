@@ -24,7 +24,9 @@
   %h3= @channel.name.to_s + "&#8217;s Admins"
 
   - unless @channel.all_admins.empty?
-    .dim= render :partial => "admins/admin", :collection => @channel.all_admins
+    %ul
+      - @channel.all_admins.each do |admin|
+        %li= link_to admin.longest_name, admin
 
   - else
     %p.notice.error
@@ -33,7 +35,7 @@
       doesn&#8217;t have any admins. This is a bad thing. There should always be at least one global admin.
   
   - if owns_channel(@channel)
-    %h3= "Manage " + @channel.name + "&#8217;s Admins"
+    %h3 Manage Local Admins
     
     - form_tag :action => "update_admins", :id => @channel.id do
       %p= select_tag("admins[]", options_for_select(Admin.find_by_global(false).to_a.collect {|c| [c.longest_name, c.id] }, @channel.admin_ids), :multiple => true)

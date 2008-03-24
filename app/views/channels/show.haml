@@ -32,7 +32,8 @@
       = @channel.name
       doesn&#8217;t have any admins. This is a bad thing. There should always be at least one global admin.
   
-  %h3= "Manage " + @channel.name + "&#8217;s Admins"
+  - if owns_channel(@channel)
+    %h3= "Manage " + @channel.name + "&#8217;s Admins"
 
 .clear
   

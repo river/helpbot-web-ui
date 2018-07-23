@@ -1,3 +1,5 @@
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FRiver%2Fhelpbot-web-ui.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FRiver%2Fhelpbot-web-ui?ref=badge_shield)
+
 == Welcome to Rails
 
 Rails is a web-application and persistence framework that includes everything
@@ -201,3 +203,7 @@ test
 vendor
   External libraries that the application depends on. Also includes the plugins subdirectory.
   This directory is in the load path.
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FRiver%2Fhelpbot-web-ui.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FRiver%2Fhelpbot-web-ui?ref=badge_large)
